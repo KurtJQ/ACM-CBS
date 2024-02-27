@@ -1,5 +1,5 @@
-# ACM-CBS - Mini Thesis by Group 1-6
-## Accounting Management System - Computerized Billing System
+# Mini Thesis by Group 1-6
+# Accounting Management System - Computerized Billing System
 ### Members
 #### Accounting Management System
 - Kurt Justine Que
