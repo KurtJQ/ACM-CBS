@@ -1,5 +1,6 @@
 import PageHeader from "./components/PageHeader";
 
+
 function App() {
   return (
     <div>
@@ -18,7 +19,6 @@ function App() {
 
         <footer>
         <p>Log Out Account</p>
-        
         </footer>
         
         </div>
