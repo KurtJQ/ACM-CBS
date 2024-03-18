@@ -1,8 +1,10 @@
+import "./pageheader.css";
+
 function PageHeader() {
   const currentDate = new Date().toDateString();
 
   return (
-    <header className="container">
+    <header className="header-container">
       <div className="page-header">
         <div className="userInfo">
           <img
