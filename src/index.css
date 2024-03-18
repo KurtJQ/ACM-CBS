@@ -8,24 +8,48 @@
 body{
     background-color: #04243D;
     font-family: "Inter", "sans-serif";
-}
-
-header{
-    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.1);
-}
-
-.page-header{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    overflow: auto;
-    padding: 0.6rem 0;
-    background-color: #033c69;
     color: white;
 }
 
-.page-header div{
-    padding: 0 0.6rem;
-    display: flex;
-    align-items: center;
+.container{
+    padding: 0 8.4rem;
+}
+
+.header{
+    display: block;
+    text-align: center;
+    padding: 1.6rem;
+}
+
+.main-content{
+    display: block;
+    border: 2px solid;
+    border-radius: 10px;
+    color: black;
+}
+
+.main-content .search-bar{
+    margin: 0.8rem;
+    width: 180px;
+    height: 24px;
+    background-color: white;
+}
+
+.main-content .statistics{
+    margin: 0.8rem;
+    width: 250px;
+    height: 180px;
+    background-color: white;
+    text-align: center;
+}
+
+.main-content .statistics div{
+    padding: 0.9rem;
+}
+
+.main-content .list{
+    margin: 0.8rem;
+    width: 180px;
+    height: 180px;
+    background-color: white;
 }
