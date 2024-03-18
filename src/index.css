@@ -3,69 +3,26 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: "Inter", "sans-serif";
 }
 
 body{
     background-color: #04243D;
-    font-family: "Inter", "sans-serif";
-    color: white;
 }
 
-.container{
-    padding: 0 8.4rem;
-}
-
-.header{
-    display: block;
-    text-align: center;
-    padding: 1.6rem;
-}
-
-.main-content{
-    display: block;
-    border: 2px solid;
-    border-radius: 10px;
-    color: black;
-}
-
-.main-content .search-bar{
-    margin: 0.8rem;
-    width: 180px;
-    height: 24px;
-    background-color: white;
-}
-
-.main-content .statistics{
-    margin: 0.8rem;
-    width: 250px;
-    height: 180px;
-    background-color: white;
-    text-align: center;
-}
-
-.main-content .statistics div{
-    padding: 0.9rem;
-}
-
-.main-content .list{
-    margin: 0.8rem;
-    width: 180px;
-    height: 180px;
-    background-color: white;
-}
-body
-{
-  background-color: #04243D;
+/* body
+{ */
+  /* background-color: #04243D; */
   /* background-color: #242526; */
   /* background-color: #e8e8e8; */
-  font-family: Poppins, Frank Ruhl Libre, San-serif;
+  /* font-family: Poppins, Frank Ruhl Libre, San-serif; */
 
   /* --primary-hue: #04243D;
     --text-color: #ffffff;
     --second-hue: #e8e8e8;
     --elements-hue: #242526;
     --system-fonts: Poppins, Frank Ruhl Libre, San-serif; */
-}
+/* } */
 
 
 .user-icon {
