@@ -52,7 +52,19 @@ function StudentList(props) {
         </div>
         <div className="payment-records">
           <div className="payment-records-header">Previous Transactions</div>
-          <div className=""></div>
+          <div className="student-transactions">
+            <div className="items-student-transactions" id="">
+              <div className="top-info-student-transaction">
+                <div className="date">03/21/2024</div>
+                <div>1st Periodic Exam</div>
+                <div>1500 PHP</div>
+              </div>
+              <div className="bottom-info-student-transaction">
+                <button>Edit</button>
+                <button>Delete</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

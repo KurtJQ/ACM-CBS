@@ -68,3 +68,31 @@
 .payment-records .payment-records-header{
     border-bottom: 1px solid black;
 }
+
+.student-transactions{
+    display:flex;
+    flex-direction: column;
+}
+
+.student-transactions .items-student-transactions{
+    font-weight: 500;
+    font-size: 14px;
+    background-color: rgb(213, 213, 213);
+    margin: 12px;
+    padding: 6px;
+    border-radius: 10px;
+}
+
+.student-transactions .top-info-student-transaction{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 8px;
+    flex-wrap: nowrap;
+    gap: 12px;
+}
+
+.student-transactions .bottom-info-student-transaction{
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
