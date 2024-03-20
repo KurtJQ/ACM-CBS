@@ -23,7 +23,7 @@ function SearchBar() {
 
 function StudentRecords() {
   return (
-    <div className="container">
+    <div className="studentrecords-container">
       <div className="header">
         <h2>S T U D E N T R E C O R D S</h2>
       </div>
