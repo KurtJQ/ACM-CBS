@@ -4,9 +4,15 @@
 }
 
 .header{
-    display: block;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     text-align: center;
     padding: 1.6rem;
+}
+
+.header h2{
+    margin: auto;
 }
 
 h2{

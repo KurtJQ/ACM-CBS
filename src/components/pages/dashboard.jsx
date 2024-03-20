@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import logout from "../../assets/logout-icon.png";
 import "./dashboard.css";
-// import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function Dashboard() {
   // const goToStudentAccounts = () => {
@@ -22,9 +22,11 @@ function Dashboard() {
         <h2>DASHBOARD</h2>
         <div className="buttons">
           <div class="button-container">
-            <button class="button" onclick="goToStudentRecords()">
-              Student Records
-            </button>
+            <Link to="/studentrecords">
+              <button class="button" onclick="goToStudentRecords()">
+                Student Records
+              </button>
+            </Link>
             <button class="button" onclick="goToStudentAccounts()">
               Student Accounts
             </button>

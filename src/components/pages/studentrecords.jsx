@@ -3,6 +3,7 @@ import "./studentrecords.css";
 import StudentList from "../StudentRecordsList";
 import list from "../SAMPLE_DATA.json";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function SearchBar() {
   const [query, setQuery] = useState();
@@ -21,12 +22,23 @@ function SearchBar() {
   );
 }
 
+function StudentRecordsHeader() {
+  return (
+    <>
+      <div className="header">
+        <Link to="/">
+          <img src="src\assets\arrow-back-regular-48.png" alt="back button" />
+        </Link>
+        <h2>S T U D E N T R E C O R D S</h2>
+      </div>
+    </>
+  );
+}
+
 function StudentRecords() {
   return (
     <div className="studentrecords-container">
-      <div className="header">
-        <h2>S T U D E N T R E C O R D S</h2>
-      </div>
+      <StudentRecordsHeader />
       <div className="main-content">
         <div className="left-side">
           <SearchBar />
