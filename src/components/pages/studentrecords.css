@@ -26,11 +26,11 @@ h2{
     align-items: center;
 }
 
-.main-content .left-side .search-bar{
+.main-content .left-side .searchbar input{
     margin: 0.8rem;
+    padding: 0.2rem;
     width: 180px;
     height: 24px;
-    background-color: white;
     border-radius: 10px;
 }
 
