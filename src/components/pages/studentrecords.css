@@ -1,0 +1,58 @@
+.container{
+    margin: 0 20.9rem;
+    min-width: 10.2rem;
+}
+
+.header{
+    display: block;
+    text-align: center;
+    padding: 1.6rem;
+}
+
+h2{
+    color: white;
+}
+
+.main-content{
+    display: flex;
+    background-color: #00579a;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.main-content .left-side{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-content .left-side .searchbar input{
+    margin: 0.8rem;
+    padding: 0.2rem;
+    width: 180px;
+    height: 24px;
+    border-radius: 10px;
+}
+
+.main-content .left-side .statistics{
+    margin: 0.8rem;
+    width: 250px;
+    height: 180px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.main-content .left-side .statistics div{
+    padding: 0.9rem;
+}
+
+.main-content .list{
+    margin: 24px auto;
+    background-color: white;
+    border-radius: 10px;
+    width: 49vw;
+    min-height: 24vh;
+}
+
+
+

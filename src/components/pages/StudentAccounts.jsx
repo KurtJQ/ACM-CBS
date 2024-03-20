@@ -1,9 +1,9 @@
 import "./StudentAccounts.css";
-import fakeData from "./SAMPLE_DATA.json";
+import fakeData from "../SAMPLE_DATA.json";
 
 function StudentAccounts() {
-    const data = React.useMemo(() => fakeData, []);
-    const columns = React.useMemo(
+  const data = React.useMemo(() => fakeData, []);
+  const columns = React.useMemo(
     () => [
       {
         Header: "Last Name",
