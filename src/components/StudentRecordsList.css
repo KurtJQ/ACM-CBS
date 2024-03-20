@@ -1,0 +1,70 @@
+.list .items{
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 0.9rem;
+}
+
+.items .top-info{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 24px;
+}
+
+.items .left-side{
+    display: flex;
+    flex-direction: row;
+    gap: inherit;
+    align-items: center;
+}
+
+.items .right-side{
+    display: flex;
+    gap: 12px;
+    margin-left: auto;
+}
+
+.hide{
+    display: none !important;
+}
+
+.items .bottom-info{
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    margin: 10px;
+}
+
+.items .payment-list, .payment-records{
+    width: 300px;
+    padding: 14px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.items .payment-list span{
+    float: right;
+}
+
+.items .payment-list > *{
+    border-bottom: 1px solid black;
+    text-align: left;
+}
+
+.payment-list div:last-child{
+    border-bottom:  none;
+}
+
+.items .right-side button{
+    padding: 0.2rem;
+    border-radius: 10px;
+}
+
+.items .payment-records{
+    padding-top: 0;
+}
+
+.payment-records .payment-records-header{
+    border-bottom: 1px solid black;
+}
