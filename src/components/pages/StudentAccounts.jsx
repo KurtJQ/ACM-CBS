@@ -19,7 +19,6 @@ function SearchBar() {
     </div>
   );
 }
-
 function StudentAccountsHeader() {
   return (
     <>
@@ -41,9 +40,15 @@ function StudentAccounts() {
         <div className="search-bar">
           <SearchBar />
         </div>
+        <div className="add-button">
+          <h4>Add Student</h4>
+        </div>
+        <div className="head-column">
+          Last Name  First Name  M.I.  Student ID  Password  Email Address Contact Number 
+        </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default StudentAccounts;
