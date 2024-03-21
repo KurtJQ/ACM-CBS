@@ -36,8 +36,8 @@ function StudentAccounts() {
               <StudentAccountsList
                 firstname={student.first_name}
                 lastname={student.last_name}
-                middleinitial={student.middle_name}
-                studentid={student.studentID}
+                middlename={student.middle_name}
+                studentID={student.student_id}
                 email={student.email}
                 password={student.password}
                 contactnum={student.contactnum}
