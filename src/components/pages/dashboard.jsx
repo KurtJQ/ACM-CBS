@@ -25,7 +25,9 @@ function Dashboard() {
             <Link to="/studentrecords">
               <button class="button">Student Records</button>
             </Link>
-            <button class="button">Student Accounts</button>
+            <Link to="/studentaccounts">
+              <button class="button">Student Accounts</button>
+            </Link>
             <Link to="/superadminpanel">
               <button class="button">Super Admin Panel</button>
             </Link>

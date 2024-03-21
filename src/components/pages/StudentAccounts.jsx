@@ -1,4 +1,4 @@
-import "./studentaccounts.css";
+import "./StudentAccounts.css";
 import list from "../SAMPLE_DATA.json";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -43,7 +43,7 @@ function StudentAccounts() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default StudentAccounts;
