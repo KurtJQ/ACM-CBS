@@ -27,9 +27,11 @@ function Dashboard() {
                 Student Records
               </button>
             </Link>
-            <button class="button" onclick="goToStudentAccounts()">
-              Student Accounts
-            </button>
+            <Link to="/studentaccounts">
+              <button class="button" onclick="goToStudentAccounts()">
+                Student Accounts
+              </button>
+            </Link>
             <button class="button" onclick="goToSuperAdminPanel()">
               Super Admin Panel
             </button>
