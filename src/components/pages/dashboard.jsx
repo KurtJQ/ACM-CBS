@@ -23,26 +23,13 @@ function Dashboard() {
         <div className="buttons">
           <div class="button-container">
             <Link to="/studentrecords">
-              <button class="button" onclick="goToStudentRecords()">
-                Student Records
-              </button>
+              <button class="button">Student Records</button>
             </Link>
-            <Link to="/studentaccounts">
-              <button class="button" onclick="goToStudentAccounts()">
-                Student Accounts
-              </button>
+            <button class="button">Student Accounts</button>
+            <Link to="/superadminpanel">
+              <button class="button">Super Admin Panel</button>
             </Link>
-            <button class="button" onclick="goToSuperAdminPanel()">
-              Super Admin Panel
-            </button>
           </div>
-
-          <footer>
-            <p>
-              {" "}
-              Log Out Account<img className="logout-icon" src={logout}></img>
-            </p>
-          </footer>
         </div>
       </div>
     </div>
