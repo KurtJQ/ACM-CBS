@@ -23,7 +23,7 @@ function StudentAccountsHeader() {
   return (
     <>
       <div className="header">
-        <Link to="/">
+        <Link to="/dashboard">
           <img src="src\assets\arrow-back-regular-48.png" alt="back button" />
         </Link>
         <h2>S T U D E N T A C C O U N T S</h2>
@@ -44,7 +44,8 @@ function StudentAccounts() {
           <h4>Add Student</h4>
         </div>
         <div className="head-column">
-          Last Name  First Name  M.I.  Student ID  Password  Email Address Contact Number 
+          Last Name First Name M.I. Student ID Password Email Address Contact
+          Number
         </div>
       </div>
     </div>

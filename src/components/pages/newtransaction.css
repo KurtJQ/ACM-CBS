@@ -1,0 +1,31 @@
+.new-transaction-container{
+    margin: 0 20.9rem;
+    min-width: 10.2rem;
+}
+
+.new-transaction-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    padding: 1.6rem;
+}
+
+.new-transaction-content-area{
+    margin: auto;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    background-color: #00579a;
+}
+
+.dropdown{
+    border: 1px solid black;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin: 10px auto;
+    padding: 8px;
+    gap: 10px;
+}

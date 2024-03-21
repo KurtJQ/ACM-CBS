@@ -26,7 +26,7 @@ function StudentRecordsHeader() {
   return (
     <>
       <div className="header">
-        <Link to="/">
+        <Link to="/dashboard">
           <img src="src\assets\arrow-back-regular-48.png" alt="back button" />
         </Link>
         <h2>S T U D E N T R E C O R D S</h2>

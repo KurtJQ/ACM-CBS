@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./StudentRecordsList.css";
+import { Link } from "react-router-dom";
 
 function StudentList(props) {
   const [toggle, setToggle] = useState(false);
@@ -14,7 +15,12 @@ function StudentList(props) {
         </div>
         <div className="right-side">
           <div>
-            <button>New Transaction</button>
+            <Link
+              key={props.studentid}
+              to={`/studentrecords/newtransaction/${props.studentid}`}
+            >
+              <button>New Transaction</button>
+            </Link>
           </div>
           <div>
             <button onClick={() => setToggle(!toggle)}>
