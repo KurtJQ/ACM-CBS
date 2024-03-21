@@ -1,53 +1,39 @@
-/* html,
-body {
-  height: 100%;
-} */
-/* body {
-  margin: 0;
-  background: white;
-  background: white;
-  font-family: sans-serif;
-  font-weight: 100;
-} */
-.container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  max-height: 600px;
-  
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+.studentaccounts-container{
+  margin: 0 20.9rem;
+  min-width: 10.2rem;
 }
-table {
-  width: 1800px;
-  height: 500px;
-  border-color:black
-  
-  
+
+.header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  padding: 1.6rem;
 }
-th,
-td {
-  padding: 15px;
-  background-color: rgba(49, 24, 24, 0.2);
-  color: black;
+
+.header h2{
+  margin: auto;
 }
-th {
+
+.studentaccounts-main-content{
+  display: flex;
+  flex-direction: column;
+  background-color: #00579a;
+  border-radius: 10px;
   text-align: center;
 }
 
-tbody tr:hover {
-  background-color: rgba(255, 255, 255, 0.3);
+.studentaccounts-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
-tbody td {
-  position: relative;
+
+.studentaccounts-header button{
+  margin: 14px;
+  padding: 8px;
 }
-tbody td:hover:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: -9999px;
-  bottom: -9999px;
-  background-color: rgba(255, 255, 255, 0.2);
-  z-index: -1;
+
+.studentaccounts-header input{
+  margin: 16px;
 }

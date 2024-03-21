@@ -1,24 +1,8 @@
 import "./StudentAccounts.css";
+import StudentAccountsList from "./StudentAccountsList";
 import list from "../SAMPLE_DATA.json";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
-function SearchBar() {
-  const [query, setQuery] = useState();
-  return (
-    <div className="searchbar">
-      <label htmlFor="query" hidden>
-        Search
-      </label>
-      <input
-        type="text"
-        name="query"
-        placeholder="Search"
-        onChange={(e) => setQuery(e.target.value)}
-      />
-    </div>
-  );
-}
 function StudentAccountsHeader() {
   return (
     <>
@@ -36,16 +20,29 @@ function StudentAccounts() {
   return (
     <div className="studentaccounts-container">
       <StudentAccountsHeader />
-      <div className="main-content">
-        <div className="search-bar">
-          <SearchBar />
+      <div className="studentaccounts-main-content">
+        <div className="studentaccounts-header">
+          <label htmlFor="query" hidden>
+            Search
+          </label>
+          <input type="text" name="query" placeholder="Search..." />
+          <button>Add New Account</button>
         </div>
-        <div className="add-button">
-          <h4>Add Student</h4>
-        </div>
-        <div className="head-column">
-          Last Name First Name M.I. Student ID Password Email Address Contact
-          Number
+        <div className="studentaccountslist">
+          {list.map((student) => {
+            console.log(student);
+            return (
+              <StudentAccountsList
+                firstname={student.first_name}
+                lastname={student.last_name}
+                middlename={student.middle_name}
+                studentID={student.student_id}
+                email={student.email}
+                password={student.password}
+                contactnum={student.contactnum}
+              />
+            );
+          })}
         </div>
       </div>
     </div>
