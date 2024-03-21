@@ -8,10 +8,16 @@ import StudentAccounts from "./components/pages/StudentAccounts.jsx";
 import SuperAdminPanel from "./components/pages/superadminpanel.jsx";
 import PageHeader from "./components/PageHeader.jsx";
 import PageFooter from "./components/PageFooter.jsx";
+import NewTransaction from "./components/pages/NewTransaction.jsx";
+import LoginSystem from "./components/pages/Login.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <LoginSystem />,
+  },
+  {
+    path: "/dashboard",
     element: <Dashboard />,
   },
   {
@@ -25,6 +31,10 @@ const router = createBrowserRouter([
   {
     path: "/superadminpanel",
     element: <SuperAdminPanel />,
+  },
+  {
+    path: "/studentrecords/newtransaction/:studentID",
+    element: <NewTransaction />,
   },
 ]);
 

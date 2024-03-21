@@ -1,0 +1,89 @@
+  .user-icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+  
+  .user-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .user-name {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .user-role {
+    color: #ccc;
+    font-size: 0.9rem;
+  }
+  
+  .current-date {
+    color: #fff;
+    margin-left: auto;
+  }
+  
+  .calendar-icon {
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
+  }
+  
+  .dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+  }
+  
+  .dashboard h2 {
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .button {
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #fff;
+    color: #04243D;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #ccc;
+  }
+  
+  .footer {
+    background-color: #04243D;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .logout {
+    cursor: pointer;
+  }
+  
+  .logout-icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+  }
+  
