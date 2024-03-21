@@ -36,7 +36,7 @@ function StudentAccounts() {
                 firstname={student.first_name}
                 lastname={student.last_name}
                 middlename={student.middle_name}
-                studentID={student.student_id}
+                studentid={student.student_id}
                 email={student.email}
                 password={student.password}
                 contactnum={student.contactnum}

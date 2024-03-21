@@ -4,10 +4,11 @@
     background: white;
     border: 1px solid black;
     border-radius: 10px;
-    margin: 10px;
+    margin: 30px;
     padding: 0.9rem;
-    gap: 24px;
+    gap: 15px;
     font-size: 18px;
+    text-indent: 10px;
 }
 
 .studentaccount-items .buttons{
