@@ -59,7 +59,7 @@ const Login = ({ setUser }) => {
         </button>
         {error && <p className="error-message">{error}</p>}
       </div>
-      <div class="footer">
+      <div className="footer">
         <p>© All rights reserve St. Clare™ 2023-2024</p>
       </div>
     </div>
