@@ -8,7 +8,10 @@ function StudentAccountsHeader() {
     <>
       <div className="header">
         <Link to="/dashboard">
-          <img src="src\assets\arrow-back-regular-48.png" alt="back button" />
+          <img
+            src="public\assets\arrow-back-regular-48.png"
+            alt="back button"
+          />
         </Link>
         <h2>S T U D E N T A C C O U N T S</h2>
       </div>

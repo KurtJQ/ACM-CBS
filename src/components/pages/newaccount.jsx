@@ -5,7 +5,7 @@ function NewAccountHeader() {
   return (
     <div className="new-account-header">
       <Link to="/studentaccounts">
-        <img src="src\assets\arrow-back-regular-48.png" alt="back button" />
+        <img src="public\assets\arrow-back-regular-48.png" alt="back button" />
       </Link>
     </div>
   );

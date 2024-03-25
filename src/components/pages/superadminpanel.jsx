@@ -8,7 +8,10 @@ function SuperAdminHeader() {
     <>
       <div className="header">
         <Link to="/dashboard">
-          <img src="src\assets\arrow-back-regular-48.png" alt="back button" />
+          <img
+            src="public\assets\arrow-back-regular-48.png"
+            alt="back button"
+          />
         </Link>
         <h2>S U P E R A D M I N P A N E L</h2>
       </div>
