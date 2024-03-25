@@ -17,7 +17,7 @@ function StudentList(props) {
           <div>
             <Link
               key={props.studentid}
-              to={`/${props.studentid}/newtransaction`}
+              to={`${props.studentid}/newtransaction`}
             >
               <button>New Transaction</button>
             </Link>
