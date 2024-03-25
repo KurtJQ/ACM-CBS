@@ -32,7 +32,6 @@ function SuperAdminPanel() {
         </div>
         <div className="adminlist">
           {data.map((admins) => {
-            console.log(admins);
             return (
               <SuperAdminList
                 firstname={admins.first_name}
