@@ -1,5 +1,6 @@
 import "./newtransaction.css";
 import { Link, useParams } from "react-router-dom";
+import data from "../SAMPLE_DATA.json";
 
 function NewTransactionHeader() {
   return (
@@ -11,15 +12,29 @@ function NewTransactionHeader() {
   );
 }
 
+function getName(studentid) {
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].student_id != studentid) {
+      return;
+    }
+    return (
+      data[i].last_name + ", " + data[i].first_name + " " + data[i].middle_name
+    );
+  }
+}
+
 function NewTransaction() {
   const params = useParams();
   return (
     <div className="new-transaction-container">
       <NewTransactionHeader />
       <div className="new-transaction-main-content">
-        <div className="new-transaction-content-area">
-          <div>Student ID: {params.studentID}</div>
-          <div className="dropdown">
+        <div className="dropdown">
+          <div className="student-info">
+            <div className="student-name">{getName(params.studentID)}</div>
+            <div className="student-id">Student ID: {params.studentID}</div>
+          </div>
+          <div className="select">
             <div>
               <input type="radio" name="exams" />
               First Periodic Exam
@@ -40,7 +55,6 @@ function NewTransaction() {
               <input type="radio" name="exams" />
               Third Periodic Exam
             </div>
-
             <div>
               <input type="radio" name="exams" />
               Prefinals
@@ -54,7 +68,9 @@ function NewTransaction() {
               Finals
             </div>
             <input type="text" placeholder="Amount" />
-            <button type="submit">Submit</button>
+            <Link to="/studentrecords">
+              <button type="submit">Submit</button>
+            </Link>
           </div>
         </div>
       </div>

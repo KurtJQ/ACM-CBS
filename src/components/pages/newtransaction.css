@@ -11,22 +11,36 @@
     padding: 1.6rem;
 }
 
-.new-transaction-content-area{
+.new-transaction-main-content{
     margin: auto;
     display: flex;
     text-align: center;
     flex-direction: column;
+    border-radius: 10px;
     background-color: #00579a;
 }
 
-.dropdown{
+.dropdown, .dropdown .select{
     border: 1px solid black;
     background: white;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    margin: 10px auto;
+    margin: 4vh auto;
     padding: 8px;
-    gap: 10px;
     text-align: left;
+}
+
+.dropdown .select{
+    margin: 0;
+    gap: 10px;
+    border: none;
+}
+
+.dropdown .student-info{
+    padding: 10px;
+}
+
+.dropdown .student-info div:last-child{
+    border-bottom: 1px solid black;
 }
