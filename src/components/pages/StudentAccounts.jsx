@@ -26,7 +26,9 @@ function StudentAccounts() {
             Search
           </label>
           <input type="text" name="query" placeholder="Search..." />
-          <button>Add New Account</button>
+          <Link to={"/new-student"}>
+            <button>Add New Account</button>
+          </Link>
         </div>
         <div className="studentaccountslist">
           {list.map((student) => {

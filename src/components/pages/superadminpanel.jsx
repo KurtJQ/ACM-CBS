@@ -26,7 +26,9 @@ function SuperAdminPanel() {
             Search
           </label>
           <input type="text" name="query" placeholder="Search..." />
-          <button>Add New Account</button>
+          <Link to="/newadmin">
+            <button>Add New Account</button>
+          </Link>
         </div>
         <div className="adminlist">
           {data.map((admins) => {
