@@ -5,7 +5,7 @@ function NewAdminHeader() {
   return (
     <div className="new-admin-header">
       <Link to="/superadminpanel">
-        <img src="public\assets\arrow-back-regular-48.png" alt="back button" />
+        <img src="images\arrow-back-regular-48.png" alt="back button" />
       </Link>
     </div>
   );

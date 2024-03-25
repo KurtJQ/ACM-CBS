@@ -6,7 +6,7 @@ function NewTransactionHeader() {
   return (
     <div className="new-transaction-header">
       <Link to="/studentrecords">
-        <img src="public\assets\arrow-back-regular-48.png" alt="back button" />
+        <img src="images\arrow-back-regular-48.png" alt="back button" />
       </Link>
     </div>
   );

@@ -4,7 +4,7 @@ function PageFooter() {
   return (
     <footer>
       <p>
-        Log Out Account<img className="public\assets\logout-icon.png"></img>
+        Log Out Account<img className="images\logout-icon.png"></img>
       </p>
     </footer>
   );
