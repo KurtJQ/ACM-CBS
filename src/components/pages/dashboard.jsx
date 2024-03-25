@@ -1,21 +1,8 @@
 import React, { useState, useEffect } from "react";
-import logout from "../../assets/logout-icon.png";
 import "./dashboard.css";
 import { Link } from "react-router-dom";
 
 function Dashboard() {
-  // const goToStudentAccounts = () => {
-  //   history.push('/student-accounts');
-  // };
-
-  // const goToStudentRecords = () => {
-  //   history.push('/student-records');
-  // };
-
-  // const goToSuperAdminPanel = () => {
-  //   history.push('/super-admin-panel');
-  // };
-
   return (
     <div>
       <div className="dashboard">
