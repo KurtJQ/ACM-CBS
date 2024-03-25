@@ -34,6 +34,7 @@ function StudentAccounts() {
           {list.map((student) => {
             return (
               <StudentAccountsList
+                key={student.student_id}
                 firstname={student.first_name}
                 lastname={student.last_name}
                 middlename={student.middle_name}

@@ -34,6 +34,7 @@ function SuperAdminPanel() {
           {data.map((admins) => {
             return (
               <SuperAdminList
+                key={admins.cashierID}
                 firstname={admins.first_name}
                 lastname={admins.last_name}
                 middleinitial={admins.middle_name}
