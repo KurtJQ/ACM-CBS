@@ -26,7 +26,7 @@ function SuperAdminPanel() {
             Search
           </label>
           <input type="text" name="query" placeholder="Search..." />
-          <Link to="/newadmin">
+          <Link to="newadmin">
             <button>Add New Account</button>
           </Link>
         </div>

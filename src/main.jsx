@@ -48,7 +48,7 @@ const router = createBrowserRouter([
         element: <SuperAdminPanel />,
       },
       {
-        path: "newadmin",
+        path: "superadminpanel/newadmin",
         element: <NewAdmin />,
       },
     ],
