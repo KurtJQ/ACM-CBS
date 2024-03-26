@@ -30,22 +30,37 @@ function StudentAccounts() {
             <button>Add New Account</button>
           </Link>
         </div>
-        <div className="studentaccountslist">
-          {list.map((student) => {
-            return (
-              <StudentAccountsList
-                key={student.student_id}
-                firstname={student.first_name}
-                lastname={student.last_name}
-                middlename={student.middle_name}
-                studentid={student.student_id}
-                email={student.email}
-                password={student.password}
-                contactnum={student.contactnum}
-              />
-            );
-          })}
-        </div>
+        <table className="studentaccountslist">
+          <thead>
+            <tr>
+              <th>Student ID</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Middle Name</th>
+              <th>Email</th>
+              <th>Password</th>
+              <th>Contact Number</th>
+              <th>Action</th> {/* Added for edit and delete buttons */}
+            </tr>
+          </thead>
+          <tbody>
+            {list.map((student) => (
+              <tr key={student.student_id}>
+                <td>{student.last_name}</td>
+                <td>{student.first_name}</td>
+                <td>{student.middle_name}</td>
+                <td>{student.student_id}</td>
+                <td>{student.email}</td>
+                <td>{student.password}</td>
+                <td>{student.contactnum}</td>
+                <td>
+                  <button>Edit</button>
+                  <button>Delete</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 .new-account-container{
     margin: 0 20.9rem;
     min-width: 10.2rem;
+    padding: 2vh;
 }
 
 .new-account-header{
@@ -16,8 +17,8 @@
 }
 
 .new-account-main-content .form{
-    padding: 10vh 22vw;
-
+    padding: 2vh 22vw;
+    
 }
 
 .new-account-main-content .form form{

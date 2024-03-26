@@ -37,3 +37,29 @@
 .studentaccounts-header input{
   margin: 16px;
 }
+
+th {
+  padding: 10px;
+  border-collapse: separate;
+  color: white;
+  font-size: 17px;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0 10px; /* Adjust the vertical spacing between rows */
+  margin: 10px;
+  letter-spacing: 1px;
+  
+}
+
+td {
+  border-top: 1px solid black; /* Example border */
+  padding: 15px;
+  background-color: white;
+  margin: 10px;
+}
+
+button {
+  margin-right: 5px;
+}
