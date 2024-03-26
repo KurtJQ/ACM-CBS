@@ -1,4 +1,3 @@
-import { render } from "react-dom";
 import "./studentrecords.css";
 import StudentList from "../StudentRecordsList";
 import list from "../SAMPLE_DATA.json";
