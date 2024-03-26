@@ -59,7 +59,7 @@ const Login = ({ setUser }) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Link to="/dashboard">
+        <Link to="/">
           <button className="login100-form-btn button-13" onClick={handleLogin}>
             Login
           </button>

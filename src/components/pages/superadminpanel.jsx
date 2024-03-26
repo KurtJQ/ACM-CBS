@@ -7,7 +7,7 @@ function SuperAdminHeader() {
   return (
     <>
       <div className="header">
-        <Link to="/dashboard">
+        <Link to="/">
           <img src="images\arrow-back-regular-48.png" alt="back button" />
         </Link>
         <h2>S U P E R A D M I N P A N E L</h2>
