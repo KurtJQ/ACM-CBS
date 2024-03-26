@@ -8,7 +8,7 @@ import StudentRecords from "./components/pages/studentrecords.jsx";
 import StudentAccounts from "./components/pages/StudentAccounts.jsx";
 import SuperAdminPanel from "./components/pages/superadminpanel.jsx";
 import NewTransaction from "./components/pages/NewTransaction.jsx";
-import LoginSystem from "./components/pages/Login.jsx";
+import { LoginSystem } from "./components/pages/Login.jsx";
 import NewAccount from "./components/pages/newaccount.jsx";
 import NewAdmin from "./components/pages/newadmin.jsx";
 import Root from "./components/pages/root.jsx";
@@ -19,6 +19,11 @@ const router = createBrowserRouter([
     element: <Root />,
     children: [
       {
+        index: true,
+        element: <Dashboard />,
+      },
+      {
+        index: true,
         path: "dashboard",
         element: <Dashboard />,
       },
