@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./login.css";
 import { useState } from "react";
 
@@ -58,9 +59,12 @@ const Login = ({ setUser }) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button className="login100-form-btn button-13" onClick={handleLogin}>
-          Login
-        </button>
+        <Link to="/dashboard">
+          <button className="login100-form-btn button-13" onClick={handleLogin}>
+            Login
+          </button>
+        </Link>
+
         {error && <p className="error-message">{error}</p>}
       </div>
       <div className="footer">
