@@ -18,7 +18,11 @@ const Login = ({ setUser }) => {
         password: "password2",
         name: "Jacqueline Rose C.",
       },
-      { username: "QueJustine", password: "password3", name: "Que Justine" },
+      {
+        username: "QueJustine",
+        password: "password3",
+        name: "Kurt Justine Que",
+      },
     ];
 
     const foundUser = users.find(
