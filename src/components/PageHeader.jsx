@@ -11,7 +11,7 @@ function PageHeader() {
             src="images\user-circle-regular-36.png"
             alt="User Profile Picture"
           />
-          <div className="user-name">Kurt Justine Que</div>
+          <div className="user-name">Jacqueline Rose Corre</div>
         </div>
         <div className="date">
           <div>{currentDate}</div>

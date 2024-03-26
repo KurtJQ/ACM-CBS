@@ -15,16 +15,15 @@ import Root from "./components/pages/root.jsx";
 
 const router = createBrowserRouter([
   {
+    path: "login",
+    element: <LoginSystem />,
+  },
+  {
     path: "/",
     element: <Root />,
     children: [
       {
         index: true,
-        element: <Dashboard />,
-      },
-      {
-        index: true,
-        path: "dashboard",
         element: <Dashboard />,
       },
       {
@@ -48,14 +47,10 @@ const router = createBrowserRouter([
         element: <SuperAdminPanel />,
       },
       {
-        path: "newadmin",
+        path: "superadminpanel/newadmin",
         element: <NewAdmin />,
       },
     ],
-  },
-  {
-    path: "login",
-    element: <LoginSystem />,
   },
 ]);
 

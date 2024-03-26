@@ -1,4 +1,3 @@
-import { render } from "react-dom";
 import "./studentrecords.css";
 import StudentList from "../StudentRecordsList";
 import list from "../SAMPLE_DATA.json";
@@ -26,7 +25,7 @@ function StudentRecordsHeader() {
   return (
     <>
       <div className="header">
-        <Link to="/dashboard">
+        <Link to="/">
           <img src="images\arrow-back-regular-48.png" alt="back button" />
         </Link>
         <h2>S T U D E N T R E C O R D S</h2>
