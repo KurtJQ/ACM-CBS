@@ -1,4 +1,4 @@
-import "./newtransaction.css";
+import "./pagestyles.css";
 import { Link, useParams } from "react-router-dom";
 import data from "../SAMPLE_DATA.json";
 

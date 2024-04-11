@@ -1,4 +1,4 @@
-import "./StudentAccounts.css";
+import "./pagestyles.css";
 import StudentAccountsList from "./StudentAccountsList";
 import list from "../SAMPLE_DATA.json";
 import { Link } from "react-router-dom";

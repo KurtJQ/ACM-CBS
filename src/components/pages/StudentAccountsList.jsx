@@ -1,4 +1,4 @@
-import "./StudentAccountsList.css";
+import "./pagestyles.css";
 
 function StudentAccountsList(props) {
   return (

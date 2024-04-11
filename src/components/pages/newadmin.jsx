@@ -1,4 +1,4 @@
-import "./newadmin.css";
+import "./pagestyles.css";
 import { Link } from "react-router-dom";
 
 function NewAdminHeader() {
