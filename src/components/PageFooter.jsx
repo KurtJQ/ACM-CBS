@@ -4,11 +4,12 @@ import "./pagefooter.css";
 function PageFooter() {
   return (
     <footer>
-      <p>
-        <Link to="login">
-          <img src="images\logout-icon.png"></img>
-        </Link>
-      </p>
+      <Link to="login">
+        <p>
+          Log out Account
+          <img className="logout-icon" src="images\logout-icon.png"></img>
+        </p>
+      </Link>
     </footer>
   );
 }
