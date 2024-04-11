@@ -9,7 +9,6 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 24px;
 }
 
 .items .left-side{
@@ -17,6 +16,7 @@
     flex-direction: row;
     gap: inherit;
     align-items: center;
+    gap: 24px;
 }
 
 .items .right-side{
