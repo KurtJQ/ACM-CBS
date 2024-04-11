@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import "./pagestyles.css";
 
 function NewAccountHeader() {
   return (

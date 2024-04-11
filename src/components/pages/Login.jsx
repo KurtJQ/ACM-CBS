@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import "./pagestyles.css";
 import { useState } from "react";
 
 const Login = ({ setUser }) => {

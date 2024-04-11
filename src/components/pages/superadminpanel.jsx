@@ -1,4 +1,3 @@
-import "./pagestyles.css";
 import { Link } from "react-router-dom";
 import SuperAdminList from "../SuperAdminList";
 import data from "../SAMPLE_DATA_ADMIN.json";

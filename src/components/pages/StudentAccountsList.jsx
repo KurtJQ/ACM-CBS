@@ -1,5 +1,3 @@
-import "./pagestyles.css";
-
 function StudentAccountsList(props) {
   return (
     <div className="studentaccount-items" id={props.studentid}>

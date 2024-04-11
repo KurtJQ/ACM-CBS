@@ -1,12 +1,10 @@
 footer {
-    background-color: #04243D;
+    background-color: #033c69;
     padding: 20px;
-    text-align: center;
-    position: fixed; 
-    left: 0; 
+    position: absolute; 
     bottom: 0; 
     width: 100%; 
-    border-top: 1px solid #ffffff; 
+    box-shadow: 0 -14px 17px rgba(0, 0, 0, 0.1);
   }
   
   footer p {

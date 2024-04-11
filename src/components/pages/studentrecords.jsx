@@ -1,4 +1,3 @@
-import "./pagestyles.css";
 import StudentList from "../StudentRecordsList";
 import list from "../SAMPLE_DATA.json";
 import { useState } from "react";
