@@ -40,6 +40,7 @@
   border: 1px solid #888;
   width: 30%; /* Set width of modal */
   text-align: center;
+  border-radius: 10px;
 }
 
 /* Edit Student Modal Content */
@@ -49,6 +50,7 @@
   padding: 20px;
   border: 1px solid #888;
   width: 20%; /* Set width of modal */
+  border-radius: 10px;
 }
 
 /* Style form fields */
@@ -68,6 +70,7 @@
   padding: 8px; /* Add some padding to input fields */
   margin-top: 5px; /* Add some spacing above input fields */
   margin-left: auto; /* Align input fields to the right */
+  border-radius: 10px;
 }
 
 /* Style buttons */
@@ -79,6 +82,7 @@
   cursor: pointer; /* Change cursor to pointer on hover */
   margin-top: 10px; 
   margin-left: 300px; /* Add some spacing between buttons */
+  border-radius: 8px;
 }
 
 .edit-student-account-modal-content form button:hover {
@@ -98,6 +102,7 @@
   border: none; /* Remove button border */
   cursor: pointer; /* Change cursor to pointer on hover */
   justify-content: center;
+  border-radius: 8px;
 }
 
 .delete-student-account-modal-content button:hover {
