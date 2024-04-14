@@ -10,10 +10,7 @@ function AdminList(props) {
       <div className="email">{props.email}</div>
       <div className="password">{props.password}</div>
       <div className="contact#">{props.contactnum}</div>
-      <div className="buttons">
-        <button>Edit</button>
-        <button>Delete</button>
-      </div>
+      
     </div>
   );
 }

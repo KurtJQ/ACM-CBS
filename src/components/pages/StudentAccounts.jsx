@@ -1,6 +1,7 @@
-import StudentAccountsList from "./StudentAccountsList";
-import list from "../SAMPLE_DATA.json";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import list from '../SAMPLE_DATA.json';
+import "./StudentAccounts.css";
 
 function StudentAccountsHeader() {
   return (
@@ -16,6 +17,30 @@ function StudentAccountsHeader() {
 }
 
 function StudentAccounts() {
+  const [editStudent, setEditStudent] = useState(null);
+  const [deleteStudent, setDeleteStudent] = useState(null);
+
+  const handleEdit = (student) => {
+    setEditStudent(student);
+  };
+
+  const handleDelete = (student) => {
+    setDeleteStudent(student);
+  };
+
+  const handleEditFormSubmit = (editedStudent) => {
+    // Handle form submission for editing student
+    console.log("Edited student data:", editedStudent);
+    setEditStudent(null);
+  };
+
+  const handleDeleteConfirm = (student) => {
+    // Handle deletion confirmation
+    console.log("Deleting student:", student);
+    // Perform deletion logic here
+    setDeleteStudent(null);
+  };
+
   return (
     <div className="studentaccounts-container">
       <StudentAccountsHeader />
@@ -39,28 +64,79 @@ function StudentAccounts() {
               <th>Email</th>
               <th>Password</th>
               <th>Contact Number</th>
-              <th>Action</th> {/* Added for edit and delete buttons */}
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
             {list.map((student) => (
               <tr key={student.student_id}>
-                <td>{student.last_name}</td>
-                <td>{student.first_name}</td>
-                <td>{student.middle_name}</td>
                 <td>{student.student_id}</td>
+                <td>{student.first_name}</td>
+                <td>{student.last_name}</td>
+                <td>{student.middle_name}</td>
                 <td>{student.email}</td>
                 <td>{student.password}</td>
                 <td>{student.contactnum}</td>
                 <td>
-                  <button>Edit</button>
-                  <button>Delete</button>
+                  <button onClick={() => handleEdit(student)}>Edit</button>
+                  <button onClick={() => handleDelete(student)}>Delete</button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
+      {editStudent && (
+    <div className="edit-student-account-modal">
+      <div className="edit-student-account-modal-content">
+        <div className="edit-student-account-close-container">
+        <button className="edit-student-account-close" onClick={() => setEditStudent(null)}>&times;</button>
+        </div>
+        {/* Edit form with inputs prefilled with student data */}
+        <form onSubmit={(e) => { e.preventDefault(); handleEditFormSubmit(editStudent); }}>
+          <label>
+            Student ID:
+            <input type="text" value={editStudent.student_id} readOnly />
+          </label>
+          <label>
+            First Name:
+            <input type="text" value={editStudent.first_name} onChange={(e) => setEditStudent({...editStudent, first_name: e.target.value})} />
+          </label>
+          <label>
+            Last Name:
+            <input type="text" value={editStudent.last_name} onChange={(e) => setEditStudent({...editStudent, last_name: e.target.value})} />
+          </label>
+          <label>
+            Middle Name:
+            <input type="text" value={editStudent.middle_name} onChange={(e) => setEditStudent({...editStudent, middle_name: e.target.value})} />
+          </label>
+          <label>
+            Email:
+            <input type="email" value={editStudent.email} onChange={(e) => setEditStudent({...editStudent, email: e.target.value})} />
+          </label>
+          <label>
+            Password:
+            <input type="password" value={editStudent.password} onChange={(e) => setEditStudent({...editStudent, password: e.target.value})} />
+          </label>
+          <label>
+            Contact Number:
+            <input type="text" value={editStudent.contactnum} onChange={(e) => setEditStudent({...editStudent, contactnum: e.target.value})} />
+          </label>
+          <button type="submit">Save</button>
+        </form>
+      </div>
+    </div>
+  )}
+      {deleteStudent && (
+        <div className="delete-student-account-modal">
+          <div className="delete-student-account-modal-content">
+            <p>Are you sure you want to delete {deleteStudent.first_name} {deleteStudent.last_name}?</p>
+            <div className="delete-button-container"><button onClick={() => handleDeleteConfirm(deleteStudent)}>Delete</button>
+            <button onClick={() => setDeleteStudent(null)}>Cancel</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
