@@ -1,30 +1,38 @@
 import { useEffect, useState } from "react";
 
 const Student = (props) => (
-  <tr key={props.student.studentID}>
-    <td>{props.student.studentid}</td>
-    <td>{props.student.firstname}</td>
-    <td>{props.student.lastname}</td>
-    <td>{props.student.middleinitial}</td>
-    <td>{props.student.email}</td>
-    <td>{props.student.password}</td>
-    <td>{props.student.contactnum}</td>
-    <td>
-      <button>Edit</button>
-      <button
-        type="button"
-        onClick={() => {
-          props.deleteStudent(props.student._id);
-        }}
-      >
-        Delete
-      </button>
-    </td>
-  </tr>
+  <>
+    <tr key={props.student._id}>
+      <td>{props.student.studentID}</td>
+      <td>{props.student.firstname}</td>
+      <td>{props.student.lastname}</td>
+      <td>{props.student.middleinitial}</td>
+      <td>{props.student.email}</td>
+      <td>{props.student.password}</td>
+      <td>{props.student.contactnum}</td>
+      <td>
+        <button>Edit</button>
+        <button
+          type="button"
+          onClick={() => {
+            props.handleDelete(props);
+          }}
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+  </>
 );
 
 export default function StudentAccountList() {
+  const [studentDelete, setStudentDelete] = useState(false);
   const [students, setStudents] = useState([]);
+
+  const handleDelete = (data) => {
+    console.log(data);
+    setStudentDelete(data);
+  };
 
   useEffect(() => {
     async function getStudents() {
@@ -47,6 +55,7 @@ export default function StudentAccountList() {
     });
     const newStudents = students.filter((el) => el._id !== id);
     setStudents(newStudents);
+    setStudentDelete(null);
   }
 
   function studentList() {
@@ -54,32 +63,39 @@ export default function StudentAccountList() {
       return (
         <Student
           student={students}
-          deleteStudent={() => deleteStudent(students._id)}
           key={students._id}
+          deleteStudent={() => deleteStudent(students._id)}
+          handleDelete={handleDelete}
         />
       );
     });
   }
 
-  return <tbody>{studentList()}</tbody>;
+  return (
+    <>
+      <tbody>{studentList()}</tbody>
+      {studentDelete && (
+        <div className="delete-student-account-modal">
+          <div className="delete-student-account-modal-content">
+            <p>
+              Are you sure you want to delete {studentDelete.student.firstname}{" "}
+              {studentDelete.student.lastname}?
+            </p>
+            <div className="delete-button-container">
+              <button
+                onClick={() =>
+                  studentDelete.deleteStudent(studentDelete.student._id)
+                }
+              >
+                Delete
+              </button>
+              <button onClick={() => studentDelete.handleDelete(false)}>
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
 }
-
-// function StudentAccountsList(props) {
-//   return (
-//     <div className="studentaccount-items" id={props.studentid}>
-//       <div className="last-name">{props.lastname}</div>
-//       <div className="first-name">{props.firstname}</div>
-//       <div className="middle-name">{props.middlename}</div>
-//       <div className="studentID">{props.studentid}</div>
-//       <div className="email">{props.email}</div>
-//       <div className="password">{props.password}</div>
-//       <div className="contactnum">{props.contactnum}</div>
-//       <div className="buttons">
-//         <button>Edit</button>
-//         <button>Delete</button>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default StudentAccountsList;
