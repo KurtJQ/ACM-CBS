@@ -371,7 +371,7 @@ body{
     padding: 10px;
     border-collapse: separate;
     color: white;
-    font-size: 17px;
+    font-size: 14px;
   }
   
   table {
@@ -522,3 +522,4 @@ h2{
 .superadmin-header input{
     margin: 16px;
 }
+
