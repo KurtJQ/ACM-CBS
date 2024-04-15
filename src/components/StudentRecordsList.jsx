@@ -4,6 +4,44 @@ import { Link } from "react-router-dom";
 
 function StudentList(props) {
   const [toggle, setToggle] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [editedData, setEditedData] = useState({
+    date: props.date,
+    exam: props.exam,
+    amount: props.amount
+  });
+
+  const handleEditClick = () => {
+    setShowEditModal(true);
+  };
+
+  const handleDeleteClick = () => {
+    setShowDeleteModal(true);
+  };
+
+  const handleEditModalClose = () => {
+    setShowEditModal(false);
+  };
+
+  const handleDeleteModalClose = () => {
+    setShowDeleteModal(false);
+  };
+
+  const handleEditSubmit = () => {
+    // Apply the edited data to the record shown on the page
+    console.log("Edited data:", editedData);
+
+    // Close the modal
+    setShowEditModal(false);
+  };
+
+  const handleDeleteConfirm = () => {
+    // Implement logic for deleting student record
+    console.log("Deleting student record:", props.studentid);
+    setShowDeleteModal(false);
+  };
+
   return (
     <div className="items" id={props.studentid}>
       <div className="top-info">
@@ -66,13 +104,54 @@ function StudentList(props) {
                 <div>1500 PHP</div>
               </div>
               <div className="bottom-info-student-transaction">
-                <button>Edit</button>
-                <button>Delete</button>
+                <button onClick={handleEditClick}>Edit</button>
+                <button onClick={handleDeleteClick}>Delete</button>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Edit Modal */}
+      {showEditModal && (
+        <div className="modal">
+          <div className="modal-content">
+            {/* Edit form */}
+            <label>Date:</label>
+            <input
+              type="date"
+              value={editedData.date}
+              onChange={(e) => setEditedData({ ...editedData, date: e.target.value })}
+            />
+            <label>Exam:</label>
+            <input
+              type="text"
+              value={editedData.exam}
+              onChange={(e) => setEditedData({ ...editedData, exam: e.target.value })}
+            />
+            <label>Amount:</label>
+            <input
+              type="number"
+              value={editedData.amount}
+              onChange={(e) => setEditedData({ ...editedData, amount: e.target.value })}
+            />
+            <button onClick={handleEditSubmit}>Save</button>
+            <button onClick={handleEditModalClose}>Cancel</button>
+          </div>
+        </div>
+      )}
+
+      {/* Delete Modal */}
+      {showDeleteModal && (
+        <div className="modal">
+          <div className="modal-content">
+            {/* Delete confirmation */}
+            <p>Are you sure you want to delete this record?</p>
+            <button onClick={handleDeleteConfirm}>Yes</button>
+            <button onClick={handleDeleteModalClose}>No</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
