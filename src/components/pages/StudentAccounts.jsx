@@ -1,6 +1,5 @@
-import StudentAccountsList from "./StudentAccountsList";
-import list from "../SAMPLE_DATA.json";
 import { Link } from "react-router-dom";
+import StudentAccountList from "./StudentAccountsList.jsx";
 
 function StudentAccountsHeader() {
   return (
@@ -42,23 +41,7 @@ function StudentAccounts() {
               <th>Action</th> {/* Added for edit and delete buttons */}
             </tr>
           </thead>
-          <tbody>
-            {list.map((student) => (
-              <tr key={student.student_id}>
-                <td>{student.last_name}</td>
-                <td>{student.first_name}</td>
-                <td>{student.middle_name}</td>
-                <td>{student.student_id}</td>
-                <td>{student.email}</td>
-                <td>{student.password}</td>
-                <td>{student.contactnum}</td>
-                <td>
-                  <button>Edit</button>
-                  <button>Delete</button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
+          <StudentAccountList />
         </table>
       </div>
     </div>
