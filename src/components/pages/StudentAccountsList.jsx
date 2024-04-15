@@ -55,7 +55,7 @@ export default function StudentAccountList() {
     });
     const newStudents = students.filter((el) => el._id !== id);
     setStudents(newStudents);
-    setStudentDelete(null);
+    setStudentDelete(false);
   }
 
   function studentList() {
