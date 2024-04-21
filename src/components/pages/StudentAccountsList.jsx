@@ -55,6 +55,7 @@ export default function StudentAccountList() {
         e
       );
     }
+    setStudentEdit(false);
   }
 
   const handleEdit = (data) => {
@@ -220,7 +221,7 @@ export default function StudentAccountList() {
                     });
                   }}
                 />
-                New
+                Old
               </label>
               <button type="submit">Save</button>
             </form>
