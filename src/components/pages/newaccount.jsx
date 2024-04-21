@@ -12,23 +12,6 @@ function NewAccountHeader() {
 }
 
 export default function NewAccount() {
-  const [form, setForm] = useState({
-    _id: addStudentID(),
-    firstname: "",
-    lastname: "",
-    middleinitial: "",
-    email: "",
-    password: "",
-    contactnum: "",
-    yearlevel: "",
-    semester: "",
-    course: "",
-    typeofstudent: "New",
-    exams: [1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500],
-    cashierID: [],
-    payments: [],
-    item: [],
-  });
   const [student, setStudent] = useState([]);
   const navigate = useNavigate();
 
@@ -47,7 +30,36 @@ export default function NewAccount() {
     return;
   }, [student.length]);
 
-  function addStudentID() {}
+  const [form, setForm] = useState({
+    _id: 0,
+    firstname: "",
+    lastname: "",
+    middleinitial: "",
+    email: "",
+    password: "",
+    contactnum: "",
+    yearlevel: "",
+    semester: "",
+    course: "",
+    typeofstudent: "New",
+    exams: [1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500],
+    cashierID: [],
+    payments: [],
+    item: [],
+  });
+
+  function sliceNum(num) {
+    num = num.toString();
+    let result = num.slice(4);
+    return result;
+  }
+
+  function addStudentID() {
+    let year = new Date().getFullYear();
+    let studentnumber = student[student.length - 1]._id + 1;
+    let result = year + sliceNum(studentnumber);
+    return parseInt(result);
+  }
 
   function updateForm(value) {
     return setForm((prev) => {
@@ -176,7 +188,11 @@ export default function NewAccount() {
               />
             </div>
             <div>
-              <input type="submit" value="Submit"></input>
+              <input
+                type="submit"
+                value="Submit"
+                onClick={(e) => updateForm({ _id: addStudentID() })}
+              ></input>
             </div>
           </form>
         </div>

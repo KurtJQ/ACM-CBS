@@ -25,6 +25,7 @@ router.get("/:id", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     let newDocument = {
+      _id: req.body._id,
       firstname: req.body.firstname,
       lastname: req.body.lastname,
       middleinitial: req.body.middleinitial,
