@@ -388,6 +388,10 @@ body{
     margin: 10px;
   }
 
+  button {
+    margin-right: 5px
+  }
+
    /* Modal styles */
 .edit-student-account-modal, .delete-student-account-modal {
   display: block; /* Ensure modal is displayed */
