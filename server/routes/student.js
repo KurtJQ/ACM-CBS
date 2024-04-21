@@ -59,7 +59,6 @@ router.patch("/:id", async (req, res) => {
         lastname: req.body.lastname,
         contactnum: req.body.contactnum,
         email: req.body.email,
-        studentID: req.body.studentID,
         password: req.body.password,
         yearlevel: req.body.yearlevel,
         course: req.body.course,
