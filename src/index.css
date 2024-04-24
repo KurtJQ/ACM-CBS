@@ -636,6 +636,15 @@ h2{
   border-radius: 10px;
 }
 
+.main-content .items .payment-records .student-transactions{
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+.main-content .items .payment-records .student-transactions::-webkit-scrollbar{
+  display: none;
+}
+
 .main-content .items .payment-list span{
   float: right;
 }
