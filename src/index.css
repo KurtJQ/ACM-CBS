@@ -367,19 +367,18 @@ body{
     margin: 16px;
   }
   
-  th {
+  .studentaccountslist th {
     padding: 10px;
     border-collapse: separate;
     color: white;
-    font-size: 14px;
+    font-size: 17px;
   }
   
-  table {
+  .studentaccountslist {
     border-collapse: separate;
     border-spacing: 0 10px; /* Adjust the vertical spacing between rows */
     margin: 10px;
     letter-spacing: 1px;
-    
   }
   
   td {
@@ -387,10 +386,6 @@ body{
     padding: 15px;
     background-color: white;
     margin: 10px;
-  }
-  
-  button {
-    margin-right: 5px;
   }
 
   button {
