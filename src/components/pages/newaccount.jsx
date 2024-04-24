@@ -43,9 +43,7 @@ export default function NewAccount() {
     course: "",
     typeofstudent: "New",
     exams: [1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500],
-    cashierID: [],
-    payments: [],
-    item: [],
+    transactions: [],
   });
 
   function sliceNum(num) {
