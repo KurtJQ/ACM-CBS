@@ -367,18 +367,19 @@ body{
     margin: 16px;
   }
   
-  .studentaccountslist th {
+  th {
     padding: 10px;
     border-collapse: separate;
     color: white;
     font-size: 17px;
   }
   
-  .studentaccountslist {
+  table {
     border-collapse: separate;
     border-spacing: 0 10px; /* Adjust the vertical spacing between rows */
     margin: 10px;
     letter-spacing: 1px;
+    
   }
   
   td {
@@ -386,6 +387,10 @@ body{
     padding: 15px;
     background-color: white;
     margin: 10px;
+  }
+  
+  button {
+    margin-right: 5px;
   }
 
    /* Modal styles */
