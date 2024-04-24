@@ -82,9 +82,13 @@ export default function StudentAccountList() {
   }, [students.length]);
 
   async function deleteStudent(id) {
-    await fetch(`http://localhost:5050/student/${id}`, {
-      method: "DELETE",
-    });
+    try {
+      await fetch(`http://localhost:5050/student/${id}`, {
+        method: "DELETE",
+      });
+    } catch (e) {
+      console.warn(`A problem occured while deleting account ${id}: `, e);
+    }
     const newStudents = students.filter((el) => el._id !== id);
     setStudents(newStudents);
     setStudentDelete(false);

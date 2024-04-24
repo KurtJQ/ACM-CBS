@@ -1,6 +1,6 @@
 import express from "express";
 import db from "../db/connection.js";
-import { ObjectId } from "mongodb";
+import { Int32 } from "mongodb";
 
 const router = express.Router();
 
@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
 //Get List by ID
 router.get("/:id", async (req, res) => {
   let collection = await db.collection("students");
-  let query = { _id: new ObjectId(req.params.id) };
+  let query = { _id: new Int32(req.params._id) };
   let result = await collection.findOne(query);
 
   if (!result) res.send("Not Found").status(404);
@@ -37,9 +37,7 @@ router.post("/", async (req, res) => {
       semester: req.body.semester,
       typeofstudent: req.body.typeofstudent,
       exams: req.body.exams,
-      cashierID: req.body.cashierID,
-      payments: req.body.payments,
-      item: req.body.item,
+      transactions: req.body.transactions,
     };
     let collection = await db.collection("students");
     let result = await collection.insertOne(newDocument);
@@ -52,7 +50,7 @@ router.post("/", async (req, res) => {
 //Edit List
 router.patch("/:id", async (req, res) => {
   try {
-    const query = { _id: new ObjectId(req.params.id) };
+    const query = { _id: new Int32(req.params._id) };
     const updates = {
       $set: {
         firstname: req.body.firstname,
@@ -80,7 +78,8 @@ router.patch("/:id", async (req, res) => {
 //Delete List
 router.delete("/:id", async (req, res) => {
   try {
-    const query = { _id: new ObjectId(req.params.id) };
+    const query = { _id: new Int32(req.params.id) };
+    console.log(query);
 
     const collection = db.collection("students");
     let result = await collection.deleteOne(query);
