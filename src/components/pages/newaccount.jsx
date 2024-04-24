@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function NewAccountHeader() {
   return (
@@ -12,7 +12,26 @@ function NewAccountHeader() {
 }
 
 export default function NewAccount() {
+  const [student, setStudent] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    async function getStudents() {
+      const response = await fetch("http://localhost:5050/student/");
+      if (!response.ok) {
+        const message = `An error occured: ${response.statusText}`;
+        console.error(message);
+        return;
+      }
+      const students = await response.json();
+      setStudent(students);
+    }
+    getStudents();
+    return;
+  }, [student.length]);
+
   const [form, setForm] = useState({
+    _id: 0,
     firstname: "",
     lastname: "",
     middleinitial: "",
@@ -22,35 +41,23 @@ export default function NewAccount() {
     yearlevel: "",
     semester: "",
     course: "",
+    typeofstudent: "New",
+    exams: [1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500],
+    transactions: [],
   });
-  const [isNew, setIsNew] = useState(true);
-  const params = useParams();
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    async function fetchData() {
-      const id = params.id?.toString() || undefined;
-      if (!id) return;
-      setIsNew(false);
-      const response = await fetch(
-        `http://localhost:5050/student/${params.id.toString()}`
-      );
-      if (!response.ok) {
-        const message = `An error has occured: ${response.statusText}`;
-        console.error(message);
-        return;
-      }
-      const student = await response.json();
-      if (!student) {
-        console.warn(`Record with id ${id} not found`);
-        navigate("/studentaccounts");
-        return;
-      }
-      setForm(student);
-    }
-    fetchData();
-    return;
-  }, [params.id, navigate]);
+  function sliceNum(num) {
+    num = num.toString();
+    let result = num.slice(4);
+    return result;
+  }
+
+  function addStudentID() {
+    let year = new Date().getFullYear();
+    let studentnumber = student[student.length - 1]._id + 1;
+    let result = year + sliceNum(studentnumber);
+    return parseInt(result);
+  }
 
   function updateForm(value) {
     return setForm((prev) => {
@@ -61,43 +68,22 @@ export default function NewAccount() {
   async function handleSubmit(e) {
     e.preventDefault();
     const person = { ...form };
+    console.log(person);
     try {
       let response;
-      if (isNew) {
-        response = await fetch("http://localhost:5050/student", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(person),
-        });
-      } else {
-        response = await fetch(`http://localhost:5050/student/${params.id}`, {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(person),
-        });
-      }
-
+      response = await fetch("http://localhost:5050/student", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(person),
+      });
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
     } catch (error) {
       console.error("A problem occured with your fetch operation: ", error);
     } finally {
-      setForm({
-        firstname: "",
-        lastname: "",
-        middleinitial: "",
-        email: "",
-        password: "",
-        contactnum: "",
-        yearlevel: "",
-        semester: "",
-        course: "",
-      });
       navigate("/studentaccounts");
     }
   }
@@ -200,7 +186,11 @@ export default function NewAccount() {
               />
             </div>
             <div>
-              <input type="submit" value="Submit"></input>
+              <input
+                type="submit"
+                value="Submit"
+                onClick={(e) => updateForm({ _id: addStudentID() })}
+              ></input>
             </div>
           </form>
         </div>

@@ -1,6 +1,5 @@
 import StudentList from "../StudentRecordsList";
-import list from "../SAMPLE_DATA.json";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 function SearchBar() {
@@ -34,6 +33,27 @@ function StudentRecordsHeader() {
 }
 
 function StudentRecords() {
+  const [students, setStudents] = useState([]);
+
+  useEffect(() => {
+    async function getStudents() {
+      const response = await fetch("http://localhost:5050/student/");
+      if (!response.ok) {
+        const message = `An error occured: ${response.statusText}`;
+        console.error(message);
+        return;
+      }
+      const students = await response.json();
+      updateStudents(students);
+    }
+    getStudents();
+    return;
+  }, [students.length]);
+
+  function updateStudents(data) {
+    setStudents(data);
+  }
+
   return (
     <div className="studentrecords-container">
       <StudentRecordsHeader />
@@ -42,26 +62,12 @@ function StudentRecords() {
           <SearchBar />
           <div className="statistics">
             <div>Number of registered Student's:</div>
-            <div>{list.length}</div>
+            <div>{students.length}</div>
           </div>
         </div>
         <div className="list">
-          {list.map((student) => (
-            <StudentList
-              key={student.student_id}
-              studentid={student.student_id}
-              firstname={student.first_name}
-              lastname={student.last_name}
-              middleinitial={student.middle_name}
-              firstperiodic={student.exams.firstperiodic}
-              prelim={student.exams.prelim}
-              secondperiodic={student.exams.secondperiodic}
-              midterm={student.exams.midterm}
-              thirdperiodic={student.exams.thirdperiodic}
-              prefinals={student.exams.prefinals}
-              fourthperiodic={student.exams.fourthperiodic}
-              finals={student.exams.finals}
-            />
+          {students.map((student) => (
+            <StudentList key={student._id} student={student} />
           ))}
         </div>
       </div>
