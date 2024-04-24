@@ -25,7 +25,6 @@ function StudentList(props) {
 
   function populateTransactions() {
     return props.student.transactions.map((transactions) => {
-      console.log(transactions);
       return (
         <ListTransactions
           transaction={transactions}
@@ -90,9 +89,7 @@ function StudentList(props) {
         {/* This is where listTransactions will take place */}
         <div className="payment-records">
           <div className="payment-records-header">Previous Transactions</div>
-          <div className="student-transactions">
-            <ListTransactions transaction={props.student.transactions[0]} />
-          </div>
+          <div className="student-transactions">{populateTransactions()}</div>
         </div>
       </div>
     </div>
