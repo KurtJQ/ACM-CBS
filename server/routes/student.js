@@ -79,7 +79,6 @@ router.patch("/:id", async (req, res) => {
 router.delete("/:id", async (req, res) => {
   try {
     const query = { _id: new Int32(req.params.id) };
-    console.log(query);
 
     const collection = db.collection("students");
     let result = await collection.deleteOne(query);
