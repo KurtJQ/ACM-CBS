@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
 //Get List by ID
 router.get("/:id", async (req, res) => {
   let collection = await db.collection("students");
-  let query = { _id: new Int32(req.params._id) };
+  let query = { _id: new Int32(req.params.id) };
   let result = await collection.findOne(query);
 
   if (!result) res.send("Not Found").status(404);
@@ -50,7 +50,7 @@ router.post("/", async (req, res) => {
 //Edit List
 router.patch("/:id", async (req, res) => {
   try {
-    const query = { _id: new Int32(req.params._id) };
+    const query = { _id: new Int32(req.params.id) };
     const updates = {
       $set: {
         firstname: req.body.firstname,
