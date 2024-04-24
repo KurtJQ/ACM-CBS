@@ -1,5 +1,4 @@
 import { Link, useParams } from "react-router-dom";
-import data from "../SAMPLE_DATA.json";
 
 function NewTransactionHeader() {
   return (
@@ -11,16 +10,16 @@ function NewTransactionHeader() {
   );
 }
 
-function getName(studentid) {
-  for (let i = 0; i < data.length; i++) {
-    if (data[i].student_id != studentid) {
-      return;
-    }
-    return (
-      data[i].last_name + ", " + data[i].first_name + " " + data[i].middle_name
-    );
-  }
-}
+// function getName(studentid) {
+//   for (let i = 0; i < data.length; i++) {
+//     if (data[i].student_id != studentid) {
+//       return;
+//     }
+//     return (
+//       data[i].last_name + ", " + data[i].first_name + " " + data[i].middle_name
+//     );
+//   }
+// }
 
 function NewTransaction() {
   const params = useParams();
