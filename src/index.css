@@ -393,7 +393,7 @@ body{
   }
 
    /* Modal styles */
-.edit-student-account-modal, .delete-student-account-modal {
+.edit-student-account-modal, .delete-student-account-modal, .edit-admin-modal{
   display: block; /* Ensure modal is displayed */
   position: fixed; /* Position modal */
   z-index: 1; /* Ensure modal appears on top */
@@ -405,12 +405,12 @@ body{
 }
 
 /* Close button */
-.edit-student-account-close-container {
+.edit-student-account-close-container, .edit-admin-modal-close-container {
 margin-bottom: 10px;
 display: flex;
 justify-content: right;
 }
-.edit-student-account-close {
+.edit-student-account-close, .edit-admin-modal-close {
 background-color: transparent;
 border: none;
 color: #aaa;
@@ -421,7 +421,7 @@ cursor: pointer; /* Change cursor to pointer on hover */
 }
 
 .edit-student-account-close:hover,
-.edit-student-account-close:focus {
+.edit-student-account-close:focus, .edit-student-close:hover, .edit-student-close:focus{
 color: black;
 text-decoration: none;
 }
@@ -438,7 +438,7 @@ border-radius: 10px;
 }
 
 /* Edit Student Modal Content */
-.edit-student-account-modal-content {
+.edit-student-account-modal-content, .edit-admin-modal-content {
 background-color: #fefefe; /* Modal background color */
 margin: 10% auto; /* Center modal on screen */
 padding: 20px;
@@ -468,7 +468,7 @@ border-radius: 10px;
 }
 
 /* Style buttons */
-.edit-student-account-modal-content form button {
+.edit-student-account-modal-content form button, .edit-admin-modal-content form button {
 background-color: #007bff; /* Button background color */
 color: white; /* Button text color */
 padding: 10px 20px; /* Add padding to buttons */
@@ -479,7 +479,7 @@ margin-left: 300px; /* Add some spacing between buttons */
 border-radius: 8px;
 }
 
-.edit-student-account-modal-content form button:hover {
+.edit-student-account-modal-content form button:hover,  .edit-admin-modal-content form button:hover{
 background-color: #0056b3; /* Button background color on hover */
 }
 
@@ -631,4 +631,35 @@ h2{
 
 .superadmin-header input{
     margin: 16px;
+}
+
+.superadmin-items{
+  display: flex;
+  flex-direction: row;
+  background: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 0.9rem;
+  gap: 24px;
+  font-size: 18px;
+}
+
+.superadmin-items .buttons{
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.edit-admin-modal-content form div{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 1.6rem
+}
+
+.edit-admin-modal-content form div input{
+  padding: 8px;
+  border-radius: 10px;
 }
