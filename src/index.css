@@ -591,6 +591,105 @@ h2{
     min-height: 24vh;
 }
 
+.main-content .list .items{
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 0.9rem;
+}
+
+.main-content .items .top-info{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.main-content .items .left-side{
+  display: flex;
+  flex-direction: row;
+  gap: inherit;
+  align-items: center;
+  gap: 24px;
+}
+
+.main-content .items .right-side{
+  display: flex;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.main-content .hide{
+  display: none !important;
+}
+
+.main-content .items .bottom-info{
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  margin: 10px;
+}
+
+.main-content .items .payment-list, .payment-records{
+  width: 300px;
+  padding: 14px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.main-content .items .payment-list span{
+  float: right;
+}
+
+.main-content .items .payment-list > *{
+  border-bottom: 1px solid black;
+  text-align: left;
+}
+
+.main-content .payment-list div:last-child{
+  border-bottom:  none;
+}
+
+.main-content .list .items .right-side button{
+  padding: 0.2rem;
+  border-radius: 10px;
+}
+
+.main-content .list  .items .payment-records{
+  padding-top: 0;
+}
+
+.main-content .list .payment-records .payment-records-header{
+  border-bottom: 1px solid black;
+}
+
+.main-content .list .student-transactions{
+  display:flex;
+  flex-direction: column;
+}
+
+.main-content .list .student-transactions .items-student-transactions{
+  font-weight: 500;
+  font-size: 14px;
+  background-color: rgb(213, 213, 213);
+  margin: 12px;
+  padding: 6px;
+  border-radius: 10px;
+}
+
+.main-content .list .student-transactions .top-info-student-transaction{
+  display: flex;
+  justify-content: center;
+  padding-bottom: 8px;
+  flex-wrap: nowrap;
+  gap: 12px;
+}
+
+.main-content .list .student-transactions .bottom-info-student-transaction{
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
 /* Super Admin Panel CSS */
 
 .superadminpanel-container{
