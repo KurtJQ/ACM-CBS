@@ -1,5 +1,4 @@
 import StudentList from "../StudentRecordsList";
-import list from "../SAMPLE_DATA.json";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 

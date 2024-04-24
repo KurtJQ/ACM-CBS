@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import SuperAdminList from "../SuperAdminList";
-import data from "../SAMPLE_DATA_ADMIN.json";
 
 function SuperAdminHeader() {
   return (
@@ -30,20 +29,7 @@ function SuperAdminPanel() {
           </Link>
         </div>
         <div className="adminlist">
-          {data.map((admins) => {
-            return (
-              <SuperAdminList
-                key={admins.cashierID}
-                firstname={admins.first_name}
-                lastname={admins.last_name}
-                middleinitial={admins.middle_name}
-                cashierid={admins.cashierID}
-                email={admins.email}
-                password={admins.password}
-                contactnum={admins.contactnum}
-              />
-            );
-          })}
+          <SuperAdminList />
         </div>
       </div>
     </div>
