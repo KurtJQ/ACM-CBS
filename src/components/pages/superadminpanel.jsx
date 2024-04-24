@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import SuperAdminList from "../SuperAdminList";
-import data from "../SAMPLE_DATA_ADMIN.json";
-import "./superadminpanel.css";
 
 function SuperAdminHeader() {
   return (
@@ -42,7 +40,9 @@ function SuperAdminPanel() {
   };
 
   const handleDelete = () => {
-    const updatedAdmins = admins.filter((admin) => admin.cashierID !== selectedAdmin.cashierID);
+    const updatedAdmins = admins.filter(
+      (admin) => admin.cashierID !== selectedAdmin.cashierID
+    );
     setAdmins(updatedAdmins);
     setDeleteModalOpen(false);
   };
@@ -60,46 +60,23 @@ function SuperAdminPanel() {
             <button>Add New Account</button>
           </Link>
         </div>
-        <table className="adminlist">
-          <thead>
-            <tr>
-              <th>Last Name</th>
-              <th>First Name</th>
-              <th>Middle Name</th>
-              <th>Cashier ID</th>
-              <th>Email</th>
-              <th>Password</th>
-              <th>Contact Number</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {admins.map((admin) => (
-              <tr key={admin.cashierID}>
-                <td>{admin.last_name}</td>
-                <td>{admin.first_name}</td>
-                <td>{admin.middle_name}</td>
-                <td>{admin.cashierID}</td>
-                <td>{admin.email}</td>
-                <td>{admin.password}</td>
-                <td>{admin.contactnum}</td>
-                <td>
-                  <button onClick={() => openEditModal(admin)}>Edit</button>
-                  <button onClick={() => openDeleteModal(admin)}>Delete</button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <div className="adminlist">
+          <SuperAdminList />
+        </div>
       </div>
 
       {/* Edit Modal */}
       {editModalOpen && (
         <div className="edit-admin-account-modal">
           <div className="edit-admin-account-modal-content">
-          <div className="edit-admin-account-close-container">
-        <button className="edit-admin-account-close" onClick={() => setEditModalOpen(null)}>&times;</button>
-        </div>
+            <div className="edit-admin-account-close-container">
+              <button
+                className="edit-admin-account-close"
+                onClick={() => setEditModalOpen(null)}
+              >
+                &times;
+              </button>
+            </div>
             <div className="edit-admin-form">
               <div>
                 <label htmlFor="edit-lastname">Last Name:</label>
@@ -200,7 +177,9 @@ function SuperAdminPanel() {
                 />
               </div>
             </div>
-            <button className="save-button" onClick={handleEdit}>Save</button>
+            <button className="save-button" onClick={handleEdit}>
+              Save
+            </button>
           </div>
         </div>
       )}

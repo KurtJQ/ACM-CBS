@@ -1,6 +1,5 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import list from "../SAMPLE_DATA.json";
+import StudentAccountList from "./StudentAccountsList.jsx";
 
 function StudentAccountsHeader() {
   return (
@@ -66,23 +65,7 @@ function StudentAccounts() {
               <th>Action</th>
             </tr>
           </thead>
-          <tbody>
-            {list.map((student) => (
-              <tr key={student.student_id}>
-                <td>{student.student_id}</td>
-                <td>{student.first_name}</td>
-                <td>{student.last_name}</td>
-                <td>{student.middle_name}</td>
-                <td>{student.email}</td>
-                <td>{student.password}</td>
-                <td>{student.contactnum}</td>
-                <td>
-                  <button onClick={() => handleEdit(student)}>Edit</button>
-                  <button onClick={() => handleDelete(student)}>Delete</button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
+          <StudentAccountList />
         </table>
       </div>
       {editStudent && (
