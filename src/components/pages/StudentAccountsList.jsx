@@ -42,16 +42,13 @@ export default function StudentAccountList() {
     const person = { ...studentEdit };
     try {
       let response;
-      response = await fetch(
-        `http://acm-cbs.vercel.app:5050//student/${person._id}`,
-        {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(person),
-        }
-      );
+      response = await fetch(`http://localhost:5050/student/${person._id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(person),
+      });
     } catch (e) {
       console.error(
         `A problem has occured while editing student "${person._id}": `,
@@ -71,7 +68,7 @@ export default function StudentAccountList() {
 
   useEffect(() => {
     async function getStudents() {
-      const response = await fetch("http://acm-cbs.vercel.app:5050//student/");
+      const response = await fetch("http://localhost:5050/student/");
       if (!response.ok) {
         const message = `An error occured: ${response.statusText}`;
         console.error(message);
@@ -86,7 +83,7 @@ export default function StudentAccountList() {
 
   async function deleteStudent(id) {
     try {
-      await fetch(`http://acm-cbs.vercel.app:5050//student/${id}`, {
+      await fetch(`http://localhost:5050/student/${id}`, {
         method: "DELETE",
       });
     } catch (e) {

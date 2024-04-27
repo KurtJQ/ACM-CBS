@@ -12,25 +12,40 @@ function NewAdminHeader() {
 }
 
 function NewAdmin() {
+  const [cashier, setCashier] = useState([]);
+  useEffect(() => {
+    async function getCashier() {
+      const response = await fetch("http://localhost:5050/cashier/");
+      if (!response.ok) {
+        const message = `An error occured: ${response.statusText}`;
+        console.error(message);
+        return;
+      }
+      const cashiers = await response.json();
+      setCashier(cashiers);
+    }
+    getCashier();
+    return;
+  }, [cashier.length]);
+
   const [form, setForm] = useState({
-    firstname: "",
+    _id: 0,
+    firsname: "",
     lastname: "",
     middleinitial: "",
     email: "",
     password: "",
     contactnum: "",
     access_level: "admin",
-    last_active: "",
   });
   const navigate = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
     const person = { ...form };
-    console.log(person);
     try {
       let response;
-      response = await fetch("http://acm-cbs.vercel.app:5050//cashier/", {
+      response = await fetch("http://localhost:5050/cashier/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -38,6 +53,7 @@ function NewAdmin() {
         body: JSON.stringify(person),
       });
       if (!response.ok) {
+        console.log(response);
         throw new Error(`HTTP error! status: ${response.status}`);
       }
     } catch (e) {
@@ -45,6 +61,19 @@ function NewAdmin() {
     } finally {
       navigate("/superadminpanel");
     }
+  }
+
+  function sliceNum(num) {
+    num = num.toString();
+    let result = num.slice(4);
+    return result;
+  }
+
+  function addCashierID() {
+    let year = new Date().getFullYear();
+    let cashierID = cashier[cashier.length - 1]._id + 1;
+    let result = year + sliceNum(cashierID);
+    return parseInt(result);
   }
 
   function updateForm(value) {
@@ -121,7 +150,14 @@ function NewAdmin() {
               />
             </div>
             <div>
-              <button type="submit">Submit</button>
+              <button
+                type="submit"
+                onClick={(e) => {
+                  updateForm({ _id: addCashierID() });
+                }}
+              >
+                Submit
+              </button>
             </div>
           </form>
         </div>
