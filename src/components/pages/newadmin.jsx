@@ -30,7 +30,7 @@ function NewAdmin() {
     console.log(person);
     try {
       let response;
-      response = await fetch("http://localhost:5050/cashier/", {
+      response = await fetch("http://acm-cbs.vercel.app:5050//cashier/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

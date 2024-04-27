@@ -17,7 +17,7 @@ export default function NewAccount() {
 
   useEffect(() => {
     async function getStudents() {
-      const response = await fetch("http://localhost:5050/student/");
+      const response = await fetch("http://acm-cbs.vercel.app:5050//student/");
       if (!response.ok) {
         const message = `An error occured: ${response.statusText}`;
         console.error(message);
@@ -71,7 +71,7 @@ export default function NewAccount() {
     console.log(person);
     try {
       let response;
-      response = await fetch("http://localhost:5050/student", {
+      response = await fetch("http://acm-cbs.vercel.app:5050//student", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

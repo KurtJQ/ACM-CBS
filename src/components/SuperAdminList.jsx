@@ -40,7 +40,7 @@ function SuperAdminList() {
 
   useEffect(() => {
     async function getAdmins() {
-      let response = await fetch("http://localhost:5050/cashier/");
+      let response = await fetch("http://acm-cbs.vercel.app:5050//cashier/");
       if (!response.ok) {
         console.error(`An error occured: ${response.statusText}`);
         return;
@@ -57,13 +57,16 @@ function SuperAdminList() {
     const person = { ...popupEdit };
     try {
       let response;
-      response = await fetch(`http://localhost:5050/cashier/${person._id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(person),
-      });
+      response = await fetch(
+        `http://acm-cbs.vercel.app:5050//cashier/${person._id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(person),
+        }
+      );
     } catch (e) {
       console.error(`An error occured while editing admin ${person._id}: `, e);
     }
@@ -72,7 +75,7 @@ function SuperAdminList() {
 
   async function deleteAdmin(id) {
     try {
-      await fetch(`http://localhost:5050/cashier/${id}`, {
+      await fetch(`http://acm-cbs.vercel.app:5050//cashier/${id}`, {
         method: "DELETE",
       });
     } catch (e) {
