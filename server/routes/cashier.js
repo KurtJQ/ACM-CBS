@@ -11,6 +11,16 @@ router.get("/", async (req, res) => {
   res.send(results).status(200);
 });
 
+//Get List by ID
+router.get("/:id", async (req, res) => {
+  let collection = await db.collection("cashiers");
+  let query = { _id: new Int32(req.params.id) };
+  let result = await collection.findOne(query);
+
+  if (!result) res.send("Not Found").status(404);
+  else res.send(result).status(200);
+});
+
 //Add List
 router.post("/", async (req, res) => {
   try {
@@ -22,7 +32,7 @@ router.post("/", async (req, res) => {
       contactnum: req.body.contactnum,
       email: req.body.email,
       password: req.body.password,
-      access_level: req.body.acces_level,
+      access_level: req.body.access_level,
     };
     let collection = await db.collection("cashiers");
     let result = await collection.insertOne(newDocument);
