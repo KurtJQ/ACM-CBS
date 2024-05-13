@@ -1,39 +1,13 @@
-import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useLogin } from "../../hooks/useLogin";
 
-const Login = ({ setUser }) => {
+const LoginSystem = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const { login, error, isLoading } = useLogin();
 
-  const handleLogin = () => {
-    const users = [
-      {
-        username: "MartinLDino",
-        password: "password1",
-        name: "Martin L. Dino",
-      },
-      {
-        username: "JacquelineRose",
-        password: "password2",
-        name: "Jacqueline Rose C.",
-      },
-      {
-        username: "QueJustine",
-        password: "password3",
-        name: "Kurt Justine Que",
-      },
-    ];
-
-    const foundUser = users.find(
-      (user) => user.username === username && user.password === password
-    );
-    if (foundUser) {
-      setUser(foundUser);
-      setError("");
-    } else {
-      setError("Invalid username or Password!");
-    }
+  const handleLogin = async () => {
+    await login(parseInt(username), password);
   };
 
   return (
@@ -58,27 +32,15 @@ const Login = ({ setUser }) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Link to="/">
-          <button className="login100-form-btn button-13" onClick={handleLogin}>
-            Login
-          </button>
-        </Link>
+        <button className="login100-form-btn button-13" onClick={handleLogin}>
+          Login
+        </button>
 
         {error && <p className="error-message">{error}</p>}
       </div>
       <div className="footer">
         <p>© All rights reserve St. Clare™ 2023-2024</p>
       </div>
-    </div>
-  );
-};
-
-const LoginSystem = () => {
-  const [user, setUser] = useState(null);
-
-  return (
-    <div>
-      <Login setUser={setUser} />
     </div>
   );
 };

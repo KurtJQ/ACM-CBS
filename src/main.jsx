@@ -1,8 +1,14 @@
 import ReactDOM from "react-dom/client";
 import React from "react";
 import "./index.css";
+import { AuthContextProvider } from "./scripts/AuthContext.jsx";
+import { useAuthContext } from "./hooks/useAuthContext.js";
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+} from "react-router-dom";
 import Dashboard from "./components/pages/dashboard";
 import StudentRecords from "./components/pages/studentrecords.jsx";
 import StudentAccounts from "./components/pages/StudentAccounts.jsx";
@@ -13,49 +19,57 @@ import NewAccount from "./components/pages/newaccount.jsx";
 import NewAdmin from "./components/pages/newadmin.jsx";
 import Root from "./components/pages/root.jsx";
 
-const router = createBrowserRouter([
-  {
-    path: "login",
-    element: <LoginSystem />,
-  },
-  {
-    path: "/",
-    element: <Root />,
-    children: [
-      {
-        index: true,
-        element: <Dashboard />,
-      },
-      {
-        path: "studentrecords",
-        element: <StudentRecords />,
-      },
-      {
-        path: "studentrecords/:studentID/newtransaction",
-        element: <NewTransaction />,
-      },
-      {
-        path: "studentaccounts",
-        element: <StudentAccounts />,
-      },
-      {
-        path: "studentaccounts/new-student",
-        element: <NewAccount />,
-      },
-      {
-        path: "superadminpanel",
-        element: <SuperAdminPanel />,
-      },
-      {
-        path: "superadminpanel/newadmin",
-        element: <NewAdmin />,
-      },
-    ],
-  },
-]);
+function ReactRouter() {
+  const { user } = useAuthContext();
+
+  const router = createBrowserRouter([
+    {
+      path: "login",
+      element: !user ? <LoginSystem /> : <Navigate to="/" />,
+    },
+    {
+      path: "/",
+      element: user ? <Root /> : <Navigate to="login" />,
+      children: [
+        {
+          index: true,
+          element: <Dashboard />,
+        },
+        {
+          path: "studentrecords",
+          element: <StudentRecords />,
+        },
+        {
+          path: "studentrecords/:studentID/newtransaction",
+          element: <NewTransaction />,
+        },
+        {
+          path: "studentaccounts",
+          element: <StudentAccounts />,
+        },
+        {
+          path: "studentaccounts/new-student",
+          element: <NewAccount />,
+        },
+        {
+          path: "superadminpanel",
+          element: <SuperAdminPanel />,
+        },
+        {
+          path: "superadminpanel/newadmin",
+          element: <NewAdmin />,
+        },
+      ],
+    },
+  ]);
+
+  return <RouterProvider router={router} />;
+}
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthContextProvider>
+      <ReactRouter />
+    </AuthContextProvider>
   </React.StrictMode>
 );
