@@ -421,7 +421,7 @@ cursor: pointer; /* Change cursor to pointer on hover */
 }
 
 .edit-student-account-close:hover,
-.edit-student-account-close:focus, .edit-student-close:hover, .edit-student-close:focus{
+.edit-student-account-close:focus, .edit-admin-modal-close:hover, .edit-admin-modal-close:focus{
 color: black;
 text-decoration: none;
 }
