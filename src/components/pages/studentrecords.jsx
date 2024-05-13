@@ -47,7 +47,9 @@ function StudentRecords() {
   useEffect(() => {
     async function getStudents() {
       try {
-        const response = await fetch("/student/");
+        const response = await fetch(
+          "https://acm-cbs-server.vercel.app/student/"
+        );
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }

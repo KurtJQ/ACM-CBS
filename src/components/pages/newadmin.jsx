@@ -15,7 +15,9 @@ function NewAdmin() {
   const [cashier, setCashier] = useState([]);
   useEffect(() => {
     async function getCashier() {
-      const response = await fetch("/cashier/");
+      const response = await fetch(
+        "https://acm-cbs-server.vercel.app/cashier/"
+      );
       if (!response.ok) {
         const message = `An error occured: ${response.statusText}`;
         console.error(message);
@@ -45,7 +47,7 @@ function NewAdmin() {
     const person = { ...form };
     try {
       let response;
-      response = await fetch("/cashier/", {
+      response = await fetch("https://acm-cbs-server.vercel.app/cashier/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

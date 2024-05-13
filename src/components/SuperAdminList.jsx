@@ -24,7 +24,9 @@ function SuperAdminList({ searchQuery }) {
   useEffect(() => {
     async function getAdmins() {
       try {
-        const response = await fetch("/cashier/");
+        const response = await fetch(
+          "https://acm-cbs-server.vercel.app/cashier/"
+        );
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }

@@ -10,11 +10,14 @@ export const useLogin = () => {
     setIsLoading(true);
     setError(null);
 
-    const response = await fetch("/cashier/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ _id, password }),
-    });
+    const response = await fetch(
+      "https://acm-cbs-server.vercel.app/cashier/login",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ _id, password }),
+      }
+    );
     const json = await response.json();
 
     if (!response.ok) {
