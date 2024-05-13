@@ -771,3 +771,9 @@ h2{
   padding: 8px;
   border-radius: 10px;
 }
+
+.edit-admin-modal-content form div select{
+  padding: 8px 3.6em;
+  border-radius: 10px;
+  border: 2px solid black
+}

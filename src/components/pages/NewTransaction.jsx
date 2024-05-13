@@ -23,7 +23,7 @@ function NewTransaction() {
     cashierID: parseInt(user.userID._id),
     amount: 0,
     item: "",
-    date: new Date().toISOString(),
+    date: new Date(),
     year: 0,
     semester: 0,
   });
@@ -72,6 +72,7 @@ function NewTransaction() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    console.log(transaction);
     const newTransaction = { ...transaction };
     try {
       const response = await fetch(`http://localhost:5050/transaction`, {
@@ -208,12 +209,10 @@ function NewTransaction() {
               onClick={() =>
                 setTransaction((prev) => ({
                   ...prev,
-                  year: student.yearlevel,
-                  semester: student.semester,
+                  year: parseInt(student.yearlevel),
+                  semester: parseInt(student.semester),
                   _id: prevTransaction[prevTransaction.length - 1]._id + 1,
                   amount: parseInt(prev.amount),
-                  year: parseInt(prev.year),
-                  semester: parseInt(prev.semester),
                 }))
               }
             >

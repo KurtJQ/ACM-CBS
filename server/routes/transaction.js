@@ -18,8 +18,18 @@ router.get("/", async (req, res) => {
   }
 });
 
-//Get Many by ID
+//Get List by ID
 router.get("/:id", async (req, res) => {
+  let collection = await db.collection("transactions");
+  let query = { _id: new Int32(req.params.id) };
+  let result = await collection.findOne(query);
+
+  if (!result) res.send("Not Found").status(404);
+  else res.send(result).status(200);
+});
+
+//Get Many by ID
+router.get("/list/:id", async (req, res) => {
   try {
     const query = { studentID: new Int32(req.params.id) };
 
@@ -54,8 +64,32 @@ router.post("/", async (req, res) => {
   }
 });
 
+//Edit
+router.patch("/:id", async (req, res) => {
+  try {
+    const query = { _id: new Int32(req.params.id) };
+    const updates = {
+      $set: {
+        cashierID: req.body.cashierID,
+        amount: req.body.amount,
+        item: req.body.item,
+        date: req.body.date,
+        year: req.body.year,
+        semester: req.body.semester,
+      },
+    };
+
+    let collection = await db.collection("transactions");
+    let result = await collection.updateOne(query, updates);
+    res.send(result).status(200);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error updating transaction!");
+  }
+});
+
 //Delete
-router.delete(":/id", async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     const query = { _id: new Int32(req.params.id) };
 
