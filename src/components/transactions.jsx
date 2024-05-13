@@ -15,9 +15,7 @@ function Transactions(props) {
 
   useEffect(() => {
     async function getTransactions(id) {
-      const response = await fetch(
-        `http://localhost:5050/transaction/list/${id}`
-      );
+      const response = await fetch(`/transaction/list/${id}`);
       if (!response.ok) {
         const message = `An error occured: ${response.statusText}`;
         console.error(message);
@@ -31,7 +29,7 @@ function Transactions(props) {
 
   async function deleteTransaction(id) {
     try {
-      await fetch(`http://localhost:5050/transaction/${id}`, {
+      await fetch(`/transaction/${id}`, {
         method: "DELETE",
       });
     } catch (e) {
@@ -54,16 +52,13 @@ function Transactions(props) {
     const transaction = { ...popupEdit };
     console.log(transaction);
     try {
-      const response = await fetch(
-        `http://localhost:5050/transaction/${transaction._id}`,
-        {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(transaction),
-        }
-      );
+      const response = await fetch(`/transaction/${transaction._id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(transaction),
+      });
     } catch (e) {
       console.error(`An error occured while editing transaction `, e);
     }

@@ -24,7 +24,7 @@ function SuperAdminList({ searchQuery }) {
   useEffect(() => {
     async function getAdmins() {
       try {
-        const response = await fetch("http://localhost:5050/cashier/");
+        const response = await fetch("/cashier/");
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -65,7 +65,7 @@ function SuperAdminList({ searchQuery }) {
     const person = { ...popupEdit };
     try {
       let response;
-      response = await fetch(`http://localhost:5050/cashier/${person._id}`, {
+      response = await fetch(`/cashier/${person._id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -80,7 +80,7 @@ function SuperAdminList({ searchQuery }) {
 
   async function deleteAdmin(id) {
     try {
-      await fetch(`http://localhost:5050/cashier/${id}`, {
+      await fetch(`/cashier/${id}`, {
         method: "DELETE",
       });
     } catch (e) {

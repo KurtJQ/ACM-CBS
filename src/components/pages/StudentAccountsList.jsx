@@ -42,7 +42,7 @@ export default function StudentAccountList({ searchQuery }) {
     const person = { ...studentEdit };
     try {
       let response;
-      response = await fetch(`http://localhost:5050/student/${person._id}`, {
+      response = await fetch(`/student/${person._id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -68,7 +68,7 @@ export default function StudentAccountList({ searchQuery }) {
 
   useEffect(() => {
     async function getStudents() {
-      const response = await fetch("http://localhost:5050/student/");
+      const response = await fetch("/student/");
       if (!response.ok) {
         const message = `An error occured: ${response.statusText}`;
         console.error(message);
@@ -83,7 +83,7 @@ export default function StudentAccountList({ searchQuery }) {
 
   async function deleteStudent(id) {
     try {
-      await fetch(`http://localhost:5050/student/${id}`, {
+      await fetch(`/student/${id}`, {
         method: "DELETE",
       });
     } catch (e) {
@@ -99,7 +99,8 @@ export default function StudentAccountList({ searchQuery }) {
       return students;
     } else {
       return students.filter((student) => {
-        const fullName = `${student.firstname} ${student.lastname}`.toLowerCase();
+        const fullName =
+          `${student.firstname} ${student.lastname}`.toLowerCase();
         return fullName.includes(searchQuery.toLowerCase());
       });
     }

@@ -32,9 +32,7 @@ function NewTransaction() {
 
   useEffect(() => {
     async function getStudent() {
-      const response = await fetch(
-        `http://localhost:5050/student/${params.studentID}`
-      );
+      const response = await fetch(`/student/${params.studentID}`);
       if (!response.ok) {
         const message = `An error has occured: ${response.statusText}`;
         console.error(message);
@@ -46,7 +44,7 @@ function NewTransaction() {
     getStudent();
 
     async function getTransactions() {
-      const response = await fetch(`http://localhost:5050/transaction/`);
+      const response = await fetch(`/transaction/`);
       if (!response.ok) {
         const message = `An error has occured: ${response.statusText}`;
         console.error(message);
@@ -75,7 +73,7 @@ function NewTransaction() {
     console.log(transaction);
     const newTransaction = { ...transaction };
     try {
-      const response = await fetch(`http://localhost:5050/transaction`, {
+      const response = await fetch(`/transaction`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

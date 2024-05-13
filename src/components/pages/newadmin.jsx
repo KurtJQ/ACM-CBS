@@ -15,7 +15,7 @@ function NewAdmin() {
   const [cashier, setCashier] = useState([]);
   useEffect(() => {
     async function getCashier() {
-      const response = await fetch("http://localhost:5050/cashier/");
+      const response = await fetch("/cashier/");
       if (!response.ok) {
         const message = `An error occured: ${response.statusText}`;
         console.error(message);
@@ -45,7 +45,7 @@ function NewAdmin() {
     const person = { ...form };
     try {
       let response;
-      response = await fetch("http://localhost:5050/cashier/", {
+      response = await fetch("/cashier/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

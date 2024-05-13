@@ -47,7 +47,7 @@ function StudentRecords() {
   useEffect(() => {
     async function getStudents() {
       try {
-        const response = await fetch("http://localhost:5050/student/");
+        const response = await fetch("/student/");
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -67,7 +67,6 @@ function StudentRecords() {
     const fullName = `${student.firstname} ${student.lastname}`.toLowerCase();
     return fullName.includes(searchQuery.toLowerCase());
   });
-  
 
   return (
     <div className="studentrecords-container">
