@@ -63,19 +63,6 @@ function NewAdmin() {
     }
   }
 
-  function sliceNum(num) {
-    num = num.toString();
-    let result = num.slice(4);
-    return result;
-  }
-
-  function addCashierID() {
-    let year = new Date().getFullYear();
-    let cashierID = cashier[cashier.length - 1]._id + 1;
-    let result = year + sliceNum(cashierID);
-    return parseInt(result);
-  }
-
   function updateForm(value) {
     return setForm((prev) => {
       return { ...prev, ...value };
@@ -88,6 +75,16 @@ function NewAdmin() {
       <div className="new-admin-main-content">
         <div className="form">
           <form onSubmit={handleSubmit}>
+            <div>
+              <label htmlFor="cashierID">Cashier ID</label>
+              <input
+                type="number"
+                name="_id"
+                onChange={(e) => {
+                  updateForm({ firstname: parseInt(e.target.value) });
+                }}
+              />
+            </div>
             <div>
               <label htmlFor="firstname">First Name</label>
               <input
@@ -150,14 +147,7 @@ function NewAdmin() {
               />
             </div>
             <div>
-              <button
-                type="submit"
-                onClick={(e) => {
-                  updateForm({ _id: addCashierID() });
-                }}
-              >
-                Submit
-              </button>
+              <button type="submit">Submit</button>
             </div>
           </form>
         </div>
