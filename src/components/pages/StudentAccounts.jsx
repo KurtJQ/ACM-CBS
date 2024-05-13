@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import StudentAccountList from "./StudentAccountsList.jsx";
+import { useState } from "react";
 
 function StudentAccountsHeader() {
   return (
@@ -15,6 +16,8 @@ function StudentAccountsHeader() {
 }
 
 function StudentAccounts() {
+  const [searchQuery, setSearchQuery] = useState("");
+
   return (
     <div className="studentaccounts-container">
       <StudentAccountsHeader />
@@ -23,7 +26,13 @@ function StudentAccounts() {
           <label htmlFor="query" hidden>
             Search
           </label>
-          <input type="text" name="query" placeholder="Search..." />
+          <input
+            type="text"
+            name="query"
+            placeholder="Search..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
           <Link to={"new-student"}>
             <button>Add New Account</button>
           </Link>
@@ -41,7 +50,7 @@ function StudentAccounts() {
               <th>Action</th> {/* Added for edit and delete buttons */}
             </tr>
           </thead>
-          <StudentAccountList />
+          <StudentAccountList searchQuery={searchQuery} />
         </table>
       </div>
     </div>

@@ -32,7 +32,7 @@ const Student = (props) => (
   </>
 );
 
-export default function StudentAccountList() {
+export default function StudentAccountList({ searchQuery }) {
   const [studentEdit, setStudentEdit] = useState(false);
   const [studentDelete, setStudentDelete] = useState(false);
   const [students, setStudents] = useState([]);
@@ -94,17 +94,27 @@ export default function StudentAccountList() {
     setStudentDelete(false);
   }
 
+  function filterStudents() {
+    if (!searchQuery) {
+      return students;
+    } else {
+      return students.filter((student) => {
+        const fullName = `${student.firstname} ${student.lastname}`.toLowerCase();
+        return fullName.includes(searchQuery.toLowerCase());
+      });
+    }
+  }
+
   function studentList() {
-    return students.map((students) => {
-      return (
-        <Student
-          student={students}
-          key={students._id}
-          handleDelete={handleDelete}
-          handleEdit={handleEdit}
-        />
-      );
-    });
+    const filteredStudents = filterStudents();
+    return filteredStudents.map((student) => (
+      <Student
+        student={student}
+        key={student._id}
+        handleDelete={handleDelete}
+        handleEdit={handleEdit}
+      />
+    ));
   }
 
   return (

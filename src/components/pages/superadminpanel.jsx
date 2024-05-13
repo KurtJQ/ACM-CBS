@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import SuperAdminList from "../SuperAdminList";
+import { useState } from "react";
 
 function SuperAdminHeader() {
   return (
@@ -15,6 +16,8 @@ function SuperAdminHeader() {
 }
 
 function SuperAdminPanel() {
+  const [searchQuery, setSearchQuery] = useState("");
+
   return (
     <div className="superadminpanel-container">
       <SuperAdminHeader />
@@ -23,13 +26,19 @@ function SuperAdminPanel() {
           <label htmlFor="query" hidden>
             Search
           </label>
-          <input type="text" name="query" placeholder="Search..." />
+          <input
+            type="text"
+            name="query"
+            placeholder="Search..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
           <Link to="newadmin">
             <button>Add New Account</button>
           </Link>
         </div>
         <div className="adminlist">
-          <SuperAdminList />
+          <SuperAdminList searchQuery={searchQuery} />
         </div>
       </div>
     </div>

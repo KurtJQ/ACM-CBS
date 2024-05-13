@@ -1,27 +1,49 @@
 import { useState, useEffect } from "react";
 
-const Admins = (props) => {
-  return (
-    <div className="superadmin-items" id={props.admin._id}>
-      <div className="last-name">{props.admin.lastname}</div>
-      <div className="first-name">{props.admin.firstname}</div>
-      <div className="middle-name">{props.admin.middleinitial}</div>
-      <div className="cashier-id">{props.admin._id}</div>
-      <div className="email">{props.admin.email}</div>
-      <div className="password">{props.admin.password}</div>
-      <div className="contact#">{props.admin.contactnum}</div>
-      <div className="buttons">
-        <button onClick={() => props.popupEdit(props.admin)}>Edit</button>
-        <button onClick={() => props.popupDel(props.admin)}>Delete</button>
-      </div>
+const Admins = (props) => (
+  <div className="superadmin-items" id={props.admin._id}>
+    <div className="last-name">{props.admin.lastname}</div>
+    <div className="first-name">{props.admin.firstname}</div>
+    <div className="middle-name">{props.admin.middleinitial}</div>
+    <div className="cashier-id">{props.admin._id}</div>
+    <div className="email">{props.admin.email}</div>
+    <div className="password">{props.admin.password}</div>
+    <div className="contact#">{props.admin.contactnum}</div>
+    <div className="buttons">
+      <button onClick={() => props.popupEdit(props.admin)}>Edit</button>
+      <button onClick={() => props.popupDel(props.admin)}>Delete</button>
     </div>
-  );
-};
+  </div>
+);
 
-function SuperAdminList() {
+function SuperAdminList({ searchQuery }) {
   const [popupDel, setPopupDel] = useState(false);
   const [popupEdit, setPopupEdit] = useState(false);
-  const [admin, setAdmin] = useState([]);
+  const [admins, setAdmins] = useState([]);
+
+  useEffect(() => {
+    async function getAdmins() {
+      try {
+        const response = await fetch("http://localhost:5050/cashier/");
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const adminsData = await response.json();
+        setAdmins(adminsData);
+      } catch (error) {
+        console.error("Error fetching admins:", error);
+      }
+    }
+    getAdmins();
+  }, []);
+
+  const filteredAdmins = admins.filter((admin) => {
+    if (!searchQuery) {
+      return true; // No search query, so all admins should be included
+    }
+    const fullName = `${admin.firstname} ${admin.lastname}`;
+    return fullName.toLowerCase().includes(searchQuery.toLowerCase());
+  });
 
   const handlePopupDel = (data) => {
     setPopupDel(data);
@@ -37,20 +59,6 @@ function SuperAdminList() {
       [data.target.name]: data.target.value,
     }));
   };
-
-  useEffect(() => {
-    async function getAdmins() {
-      let response = await fetch("http://localhost:5050/cashier/");
-      if (!response.ok) {
-        console.error(`An error occured: ${response.statusText}`);
-        return;
-      }
-      const admins = await response.json();
-      updateAdmin(admins);
-    }
-    getAdmins();
-    return;
-  }, [admin.length]);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -76,33 +84,23 @@ function SuperAdminList() {
         method: "DELETE",
       });
     } catch (e) {
-      console.error(`An error occured while doing fetch operation: `, e);
+      console.error(`An error occured while deleting admin ${id}: `, e);
     }
-    const newAdmins = admin.filter((el) => el._id !== id);
-    setAdmin(newAdmins);
+    const newAdmins = admins.filter((el) => el._id !== id);
+    setAdmins(newAdmins);
     setPopupDel(false);
-  }
-
-  function updateAdmin(data) {
-    setAdmin(data);
-  }
-
-  function populateAdmins() {
-    return admin.map((admins) => {
-      return (
-        <Admins
-          key={admins._id}
-          admin={admins}
-          popupDel={handlePopupDel}
-          popupEdit={handlePopupEdit}
-        />
-      );
-    });
   }
 
   return (
     <>
-      {populateAdmins()}
+      {filteredAdmins.map((admin) => (
+        <Admins
+          key={admin._id}
+          admin={admin}
+          popupDel={handlePopupDel}
+          popupEdit={handlePopupEdit}
+        />
+      ))}
       {popupEdit && (
         <div className="edit-admin-modal">
           <div className="edit-admin-modal-content">
