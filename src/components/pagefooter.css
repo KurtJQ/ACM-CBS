@@ -7,18 +7,25 @@ footer {
     box-shadow: 0 -14px 17px rgba(0, 0, 0, 0.1);
   }
   
-  footer p {
+  footer div {
+    display: flex;
+    justify-content: flex-end;
     margin: 0;
-    color: #ffffff;
+    padding: 0 30px;
+    
+  }
+  
+  footer div button:hover {
+    text-decoration: underline;
+  }
+
+  footer div button{
+    border: none;
+    background-color: rgba(255, 255 , 255, 0);
+    color: white;
     font-size: 13px;
     font-weight: bold;
     cursor: pointer;
-    margin-right: 70px;
-    text-align: right;
-  }
-  
-  footer p:hover {
-    text-decoration: underline;
   }
   
   .logout-icon {

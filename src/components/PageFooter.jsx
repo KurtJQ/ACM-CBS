@@ -1,15 +1,19 @@
-import { Link } from "react-router-dom";
 import "./pagefooter.css";
+import { useLogout } from "../hooks/useLogout";
 
 function PageFooter() {
+  const { logout } = useLogout();
+  const handleClick = () => {
+    logout();
+  };
   return (
     <footer>
-      <Link to="login">
-        <p>
+      <div>
+        <button onClick={handleClick}>
           Log out Account
           <img className="logout-icon" src="images\logout-icon.png"></img>
-        </p>
-      </Link>
+        </button>
+      </div>
     </footer>
   );
 }
