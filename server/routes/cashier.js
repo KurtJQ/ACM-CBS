@@ -21,6 +21,30 @@ router.get("/:id", async (req, res) => {
   else res.send(result).status(200);
 });
 
+//Login
+router.post("/login", async (req, res) => {
+  const { _id, password } = req.body;
+
+  try {
+    if (!_id || !password) {
+      throw Error("All fields must  be filled");
+    }
+
+    let collection = await db.collection("cashiers");
+    let userID = await collection.findOne({ _id });
+    if (!userID) {
+      throw Error("User does not exist");
+    }
+    if (password != userID.password) {
+      throw Error("Incorrect Password");
+    }
+
+    res.status(200).json({ userID });
+  } catch (e) {
+    res.status(400).json({ error: e.message });
+  }
+});
+
 //Add List
 router.post("/", async (req, res) => {
   try {

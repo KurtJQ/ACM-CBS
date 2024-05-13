@@ -1,47 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
-const ListTransactions = (props) => {
-  return (
-    <div
-      className="items-student-transactions"
-      id={props.transaction.paymentID}
-    >
-      <div className="top-info-student-transaction">
-        <div className="date">
-          {new Date(props.transaction.date).toLocaleDateString()}
-        </div>
-        <div>{props.transaction.item} Exam</div>
-        <div>{props.transaction.paymentAmount} PHP</div>
-      </div>
-      <div className="bottom-info-student-transaction">
-        <button>Edit</button>
-        <button onClick={props.popupDel(props.transaction)}>Delete</button>
-      </div>
-    </div>
-  );
-};
+import Transactions from "./transactions";
 
 function StudentList(props) {
   const [toggle, setToggle] = useState(false);
-  const [popupDel, setPopupDel] = useState(false);
-  const [popupEdit, setPopupEdit] = useState(false);
-
-  function handleDel(data) {
-    setPopupDel(data);
-  }
-
-  function populateTransactions() {
-    return props.student.transactions.map((transactions) => {
-      return (
-        <ListTransactions
-          transaction={transactions}
-          key={transactions.paymentID}
-          popupDel={handleDel}
-        />
-      );
-    });
-  }
 
   return (
     <>
@@ -55,12 +17,12 @@ function StudentList(props) {
           </div>
           <div className="right-side">
             <div>
-              {/* <Link
+              <Link
                 key={props.student._id}
                 to={`${props.student._id}/newtransaction`}
-              > */}
-              <button>New Transaction</button>
-              {/* </Link> */}
+              >
+                <button>New Transaction</button>
+              </Link>
             </div>
             <div>
               <button onClick={() => setToggle(!toggle)}>
@@ -72,34 +34,36 @@ function StudentList(props) {
         <div className={`bottom-info ${toggle ? "" : "hide"}`}>
           <div className="payment-list">
             <div className="firstperiodic">
-              1st Periodic Exam <span>{props.student.exams[0] + " PHP"}</span>
+              1st Periodic Exam <span>{1500 + " PHP"}</span>
             </div>
             <div className="prelim">
-              Prelim <span>{props.student.exams[1] + " PHP"}</span>
+              Prelim <span>{1500 + " PHP"}</span>
             </div>
             <div className="secondperiodic">
-              2nd Periodic Exam <span>{props.student.exams[2] + " PHP"}</span>
+              2nd Periodic Exam <span>{1500 + " PHP"}</span>
             </div>
             <div className="midterm">
-              Midterm <span>{props.student.exams[3] + " PHP"}</span>
+              Midterm <span>{1500 + " PHP"}</span>
             </div>
             <div className="thirdperiodic">
-              3rd Periodic Exam <span>{props.student.exams[4] + " PHP"}</span>
+              3rd Periodic Exam <span>{1500 + " PHP"}</span>
             </div>
             <div className="prefinals">
-              Pre-Finals <span>{props.student.exams[5] + " PHP"}</span>
+              Pre-Finals <span>{1500 + " PHP"}</span>
             </div>
             <div className="fourthperiodic">
-              4th Periodic Exam <span>{props.student.exams[6] + " PHP"}</span>
+              4th Periodic Exam <span>{1500 + " PHP"}</span>
             </div>
             <div className="finals">
-              Finals <span>{props.student.exams[7] + " PHP"}</span>
+              Finals <span>{1500 + " PHP"}</span>
             </div>
           </div>
           {/* This is where listTransactions will take place */}
           <div className="payment-records">
             <div className="payment-records-header">Previous Transactions</div>
-            <div className="student-transactions">{populateTransactions()}</div>
+            <div className="student-transactions">
+              <Transactions studentID={props.student._id} />
+            </div>
           </div>
         </div>
       </div>

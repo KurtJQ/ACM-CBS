@@ -42,8 +42,6 @@ export default function NewAccount() {
     semester: "",
     course: "",
     typeofstudent: "New",
-    exams: [1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500],
-    transactions: [],
   });
 
   function sliceNum(num) {
@@ -53,9 +51,14 @@ export default function NewAccount() {
   }
 
   function addStudentID() {
+    let result;
     let year = new Date().getFullYear();
-    let studentnumber = student[student.length - 1]._id + 1;
-    let result = year + sliceNum(studentnumber);
+    if (!student.length == 0) {
+      let studentnumber = student[student.length - 1]._id + 1;
+      result = year + sliceNum(studentnumber);
+      return parseInt(result);
+    }
+    result = year + "0001";
     return parseInt(result);
   }
 
@@ -68,7 +71,6 @@ export default function NewAccount() {
   async function handleSubmit(e) {
     e.preventDefault();
     const person = { ...form };
-    console.log(person);
     try {
       let response;
       response = await fetch("http://localhost:5050/student", {

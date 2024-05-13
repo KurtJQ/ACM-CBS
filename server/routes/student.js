@@ -36,8 +36,6 @@ router.post("/", async (req, res) => {
       course: req.body.course,
       semester: req.body.semester,
       typeofstudent: req.body.typeofstudent,
-      exams: req.body.exams,
-      transactions: req.body.transactions,
     };
     let collection = await db.collection("students");
     let result = await collection.insertOne(newDocument);
