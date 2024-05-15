@@ -83,7 +83,7 @@ function NewAdmin() {
                 type="number"
                 name="_id"
                 onChange={(e) => {
-                  updateForm({ firstname: parseInt(e.target.value) });
+                  updateForm({ _id: parseInt(e.target.value) });
                 }}
               />
             </div>
