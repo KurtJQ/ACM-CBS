@@ -110,6 +110,9 @@ body{
     outline: none;
     border: none;
   }
+  .wrap-login100 span{
+    margin: auto;
+  }
   .login-form h2 {
     text-align: center;
     margin-bottom: 20px;

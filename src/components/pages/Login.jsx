@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useLogin } from "../../hooks/useLogin";
+import BarLoader from "react-spinners/BarLoader";
 
 const LoginSystem = () => {
   const [username, setUsername] = useState("");
@@ -35,7 +36,7 @@ const LoginSystem = () => {
         <button className="login100-form-btn button-13" onClick={handleLogin}>
           Login
         </button>
-
+        <BarLoader color="#36d7b7" loading={isLoading} />
         {error && <p className="error-message">{error}</p>}
       </div>
       <div className="footer">
