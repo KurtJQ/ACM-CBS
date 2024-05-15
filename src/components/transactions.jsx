@@ -15,21 +15,27 @@ function Transactions(props) {
 
   useEffect(() => {
     async function getTransactions(id) {
-      const response = await fetch(`/transaction/list/${id}`);
-      if (!response.ok) {
-        const message = `An error occured: ${response.statusText}`;
-        console.error(message);
-        return;
+      try {
+        const response = await fetch(
+          `https://acm-cbs-server.vercel.app/transaction/list/${id}`
+        );
+        if (!response.ok) {
+          const message = `An error occured: ${response.statusText}`;
+          console.error(message);
+          return;
+        }
+        const transactions = await response.json();
+        setTransactions(transactions);
+      } catch (e) {
+        console.warn("An error occured while fetching data: ", e);
       }
-      const transactions = await response.json();
-      setTransactions(transactions);
     }
     getTransactions(props.studentID);
   }, [transactions.length]);
 
   async function deleteTransaction(id) {
     try {
-      await fetch(`/transaction/${id}`, {
+      await fetch(`https://acm-cbs-server.vercel.app/transaction/${id}`, {
         method: "DELETE",
       });
     } catch (e) {
@@ -50,15 +56,17 @@ function Transactions(props) {
   async function handleSubmit(e) {
     e.preventDefault();
     const transaction = { ...popupEdit };
-    console.log(transaction);
     try {
-      const response = await fetch(`/transaction/${transaction._id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(transaction),
-      });
+      const response = await fetch(
+        `https://acm-cbs-server.vercel.app/transaction/${transaction._id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(transaction),
+        }
+      );
     } catch (e) {
       console.error(`An error occured while editing transaction `, e);
     }
