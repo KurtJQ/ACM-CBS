@@ -116,6 +116,7 @@ function NewTransaction() {
                 name="item"
                 value="1st Periodic"
                 id="firstperiodic"
+                required
                 checked={transaction.item === "1st Periodic"}
                 onChange={handleChange}
               />

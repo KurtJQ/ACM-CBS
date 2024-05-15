@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Transactions(props) {
+function Transactions({ listTransactions }) {
   const [transactions, setTransactions] = useState([]);
   const [popupDel, setPopupDel] = useState(false);
   const [popupEdit, setPopupEdit] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setTransactions(listTransactions);
+  }, [listTransactions.length]);
 
   function handlePopupDel(data) {
     setPopupDel(data);
@@ -14,26 +18,6 @@ function Transactions(props) {
   function handleEdit(data) {
     setPopupEdit(data);
   }
-
-  useEffect(() => {
-    async function getTransactions(id) {
-      try {
-        const response = await fetch(
-          `https://acm-cbs-server.vercel.app/transaction/list/${id}`
-        );
-        if (!response.ok) {
-          const message = `An error occured: ${response.statusText}`;
-          console.error(message);
-          return;
-        }
-        const transactions = await response.json();
-        setTransactions(transactions);
-      } catch (e) {
-        console.warn("An error occured while fetching data: ", e);
-      }
-    }
-    getTransactions(props.studentID);
-  }, [transactions.length]);
 
   async function deleteTransaction(id) {
     try {
