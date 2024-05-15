@@ -32,7 +32,9 @@ function NewTransaction() {
 
   useEffect(() => {
     async function getStudent() {
-      const response = await fetch(`/student/${params.studentID}`);
+      const response = await fetch(
+        `https://acm-cbs-server.vercel.app/student/${params.studentID}`
+      );
       if (!response.ok) {
         const message = `An error has occured: ${response.statusText}`;
         console.error(message);
@@ -44,7 +46,9 @@ function NewTransaction() {
     getStudent();
 
     async function getTransactions() {
-      const response = await fetch(`/transaction/`);
+      const response = await fetch(
+        `https://acm-cbs-server.vercel.app/transaction/`
+      );
       if (!response.ok) {
         const message = `An error has occured: ${response.statusText}`;
         console.error(message);
@@ -73,13 +77,16 @@ function NewTransaction() {
     console.log(transaction);
     const newTransaction = { ...transaction };
     try {
-      const response = await fetch(`/transaction`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newTransaction),
-      });
+      const response = await fetch(
+        `https://acm-cbs-server.vercel.app/transaction`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newTransaction),
+        }
+      );
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
