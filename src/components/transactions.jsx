@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Transactions(props) {
   const [transactions, setTransactions] = useState([]);
   const [popupDel, setPopupDel] = useState(false);
   const [popupEdit, setPopupEdit] = useState(false);
+  const navigate = useNavigate();
 
   function handlePopupDel(data) {
     setPopupDel(data);
@@ -69,6 +71,8 @@ function Transactions(props) {
       );
     } catch (e) {
       console.error(`An error occured while editing transaction `, e);
+    } finally {
+      navigate(0);
     }
   }
 
