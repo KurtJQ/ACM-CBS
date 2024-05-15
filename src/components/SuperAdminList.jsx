@@ -37,7 +37,7 @@ function SuperAdminList({ searchQuery }) {
       }
     }
     getAdmins();
-  }, []);
+  }, [admins.length]);
 
   const filteredAdmins = admins.filter((admin) => {
     if (!searchQuery) {
