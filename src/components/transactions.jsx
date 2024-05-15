@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 function Transactions({ listTransactions }) {
   const [transactions, setTransactions] = useState([]);
   const [popupDel, setPopupDel] = useState(false);
   const [popupEdit, setPopupEdit] = useState(false);
   const navigate = useNavigate();
+
+  const { user } = useAuthContext();
+  const superadmin = user.userID.access_level == "superadmin";
 
   useEffect(() => {
     setTransactions(listTransactions);
@@ -75,10 +79,14 @@ function Transactions({ listTransactions }) {
             <div>{transactions.item} Exam</div>
             <div>{transactions.amount} PHP</div>
           </div>
-          <div className="bottom-info-student-transaction">
-            <button onClick={() => handleEdit(transactions)}>Edit</button>
-            <button onClick={() => handlePopupDel(transactions)}>Delete</button>
-          </div>
+          {superadmin && (
+            <div className="bottom-info-student-transaction">
+              <button onClick={() => handleEdit(transactions)}>Edit</button>
+              <button onClick={() => handlePopupDel(transactions)}>
+                Delete
+              </button>
+            </div>
+          )}
         </div>
       );
     });
