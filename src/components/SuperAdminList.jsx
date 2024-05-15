@@ -67,13 +67,16 @@ function SuperAdminList({ searchQuery }) {
     const person = { ...popupEdit };
     try {
       let response;
-      response = await fetch(`/cashier/${person._id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(person),
-      });
+      response = await fetch(
+        `https://acm-cbs-server.vercel.app/cashier/${person._id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(person),
+        }
+      );
     } catch (e) {
       console.error(`An error occured while editing admin ${person._id}: `, e);
     }
@@ -82,7 +85,7 @@ function SuperAdminList({ searchQuery }) {
 
   async function deleteAdmin(id) {
     try {
-      await fetch(`/cashier/${id}`, {
+      await fetch(`https://acm-cbs-server.vercel.app/cashier/${id}`, {
         method: "DELETE",
       });
     } catch (e) {
