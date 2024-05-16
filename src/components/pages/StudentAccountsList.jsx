@@ -42,13 +42,16 @@ export default function StudentAccountList({ searchQuery }) {
     const person = { ...studentEdit };
     try {
       let response;
-      response = await fetch(`/student/${person._id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(person),
-      });
+      response = await fetch(
+        `https://acm-cbs-server.vercel.app/student/${person._id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(person),
+        }
+      );
     } catch (e) {
       console.error(
         `A problem has occured while editing student "${person._id}": `,
@@ -85,7 +88,7 @@ export default function StudentAccountList({ searchQuery }) {
 
   async function deleteStudent(id) {
     try {
-      await fetch(`/student/${id}`, {
+      await fetch(`https://acm-cbs-server.vercel.app/student/${id}`, {
         method: "DELETE",
       });
     } catch (e) {
