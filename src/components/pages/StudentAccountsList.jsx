@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 const Student = (props) => (
   <>
     <tr key={props.student._id}>
@@ -37,6 +37,8 @@ export default function StudentAccountList({ searchQuery }) {
   const [studentDelete, setStudentDelete] = useState(false);
   const [students, setStudents] = useState([]);
 
+  const navigate = useNavigate();
+
   async function handleSubmit(e) {
     e.preventDefault();
     const person = { ...studentEdit };
@@ -57,8 +59,10 @@ export default function StudentAccountList({ searchQuery }) {
         `A problem has occured while editing student "${person._id}": `,
         e
       );
+    } finally {
+      setStudentEdit(false);
+      navigate(0);
     }
-    setStudentEdit(false);
   }
 
   const handleEdit = (data) => {
