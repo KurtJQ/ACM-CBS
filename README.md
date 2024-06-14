@@ -13,3 +13,5 @@
 - Morrix Roxas
 - Adrian Jhomen Cutora
 - Mark John Empas
+
+Check out our back-end git repository [here](https://github.com/KurtJQ/ACM-CBS-server)
